@@ -1,3 +1,111 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --header-height: 6rem;
+    --header-height-scroll: 4rem;
+    --body-height: calc(100vh - var(--header-height));
+    --blue: #4db6ac;
+    --header-dark:  rgb(6, 8, 12, var(--tw-bg-opacity));
+}
+
+
+@layer utilities {
+    @variants dark {
+        .bg-header-dark {
+            --tw-bg-opacity: 1;
+            background-color: var(--header-dark);
+        }
+
+        .navbar-glass {
+            backdrop-filter: blur( 15px );
+            -webkit-backdrop-filter: blur( 15px );
+        }
+
+        .icon-color {
+            filter: invert(0.8);
+        }
+
+        .page-background-color {
+            background-color: #06080c;
+        }
+
+        .color-blue {
+            color: var(--blue);
+        }
+
+        .hover\:color-blue:hover {
+            color: var(--blue);
+        }
+    }
+
+    .color-red {
+        color: #C62828;
+    }
+
+    .h-header {
+        height: var(--header-height);
+    }
+
+    .h-header-scroll {
+        height: var(--header-height-scroll);
+    }
+
+    .h-w-header-scroll {
+        height: var(--header-height-scroll);
+        width: var(--header-height-scroll);
+    }
+
+    .h-body {
+        height: var(--body-height);
+    }
+
+    .top-header-scroll {
+        top: var(--header-height-scroll);
+    }
+
+    .pt-header-height {
+        padding-top: var(--header-height);
+    }
+
+    .min-h-1\/3vh {
+        min-height: max(33.3vh, 300px);
+    }
+
+    .-translate-y-menu {
+        --tw-translate-y: calc(calc(var(--header-height) + 100%) * -1 )
+    }
+
+    .page-background-color {
+        background-color: #eeeeee;
+    }
+
+    .page-background {
+        position: fixed;
+        display: block;
+        top: 0;
+        left: 0;
+        /*height: max(100vh, 995px);*/
+        height: 100vh;
+        width: 100%;
+        z-index: -50;
+    }
+
+    .page_section_anchor {
+        margin-top: calc( calc( 2rem + var(--header-height) ) * -1 );
+    }
+
+    #main_text .typed-cursor {
+        @apply dark:text-white text-5xl
+    }
+
+    #subtext .typed-cursor {
+        @apply dark:text-white text-3xl
+    }
+
+    #welcome_container span {
+        width: -moz-fit-content;
+        width: fit-content;
+    }
+}

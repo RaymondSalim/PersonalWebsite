@@ -1,11 +1,27 @@
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'card': {
+          light: "#FFFFFF",
+          dark: "#201f28"
+        },
+        'body': {
+          light: "#FFFFFF",
+          dark: '#130f17'
+        }
+      },
+      transitionDuration: {
+        '250': '250ms'
+      }
+    },
   },
   variants: {
-    extend: {},
+    extend: {
+      opacity: ['dark'],
+    },
   },
   plugins: [],
 }
