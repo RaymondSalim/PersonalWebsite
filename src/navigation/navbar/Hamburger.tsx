@@ -1,5 +1,6 @@
 import React, {SyntheticEvent} from "react";
 import './Hamburger.css'
+import BaseProps from "../../common/interface/BaseProps";
 
 export class Hamburger extends React.Component<HamburgerProps> {
   constructor(props: HamburgerProps | Readonly<HamburgerProps>) {
@@ -14,8 +15,8 @@ export class Hamburger extends React.Component<HamburgerProps> {
   render() {
     return (
       <button
-        onClick={this.handleClick}
-        className={`hamburger hamburger--spring h-full ${this.props.class} ${this.props.isActive ? 'is-active' : ''}`}
+        onClick={this.handleClick} // Using custom function for future uses
+        className={`hamburger hamburger--spring h-full z-40 ${this.props.class ?? ''} ${this.props.isActive ? 'is-active' : ''}`}
         style={{outline: 'none'}}
         type="button">
       <span className={"hamburger-box"}>
@@ -26,7 +27,7 @@ export class Hamburger extends React.Component<HamburgerProps> {
   }
 }
 
-export interface HamburgerProps {
+export interface HamburgerProps extends BaseProps {
   class?: string
   isActive: boolean
   onclick: () => void

@@ -1,11 +1,9 @@
 import React from "react";
 import {anime} from "react-anime";
+import BaseProps from "../common/interface/BaseProps";
 
-export class Icon extends React.Component<IconProps> {
-  constructor(props: IconProps) {
-    super(props);
+export class Logo extends React.Component<LogoProps> {
 
-  }
   animate(callback: () => void) {
     let an = anime({
       targets: '#logo path',
@@ -31,7 +29,7 @@ export class Icon extends React.Component<IconProps> {
     return (
       <svg
             xmlns="http://www.w3.org/2000/svg"
-            className={`dark:color-blue ${this.props.class}`}
+            className={`text-theme-primary ${this.props.classList}`}
             id="logo"
             viewBox="0 0 132.10498 132.10498"
             fill="none"
@@ -56,8 +54,7 @@ export class Icon extends React.Component<IconProps> {
   }
 }
 
-export interface IconProps {
-  class?: string
+export interface LogoProps extends BaseProps {
   // id?: string
   wantAnimation?: boolean
   animationCallback?: () => void

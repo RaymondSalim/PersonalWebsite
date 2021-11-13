@@ -1,34 +1,38 @@
+.hamburger {
+    padding: 1rem !important;
+}
+
 .hamburger-inner {
+    @apply bg-theme-primary;
     transition-property: all !important;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
     transition-duration: 150ms !important;
     right: 0;
-    background-color: var(--blue) !important;
 }
 
 .hamburger.is-active .hamburger-inner::before,
 .hamburger.is-active .hamburger-inner::after {
-    background-color: var(--blue) !important;
+    @apply bg-theme-primary;
     width: 40px !important;
 }
 
 .hamburger-inner::before {
-    background-color: var(--blue) !important;
+    @apply bg-theme-primary;
     width: 30px !important;
     right: 0;
 }
 
 .hamburger-inner::after {
-    background-color: var(--blue) !important;
+    @apply bg-theme-primary;
     width: 20px !important;
     right: 0;
 }
 
-.dark .hamburger-inner,
-.dark .hamburger-inner:before,
-.dark .hamburger-inner:after,
-.dark .hamburger.is-active .hamburger-inner,
-.dark .hamburger.is-active .hamburger-inner:before,
-.dark .hamburger.is-active .hamburger-inner:after {
-    background-color: #CCCCCC;
-}
+/*.dark .hamburger-inner,*/
+/*.dark .hamburger-inner:before,*/
+/*.dark .hamburger-inner:after,*/
+/*.dark .hamburger.is-active .hamburger-inner,*/
+/*.dark .hamburger.is-active .hamburger-inner:before,*/
+/*.dark .hamburger.is-active .hamburger-inner:after {*/
+/*    background-color: #CCCCCC;*/
+/*}*/
