@@ -1,21 +1,24 @@
 module.exports = {
-  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
+  mode: 'jit',
+  purge: ['./src/**/*.{js,jsx,ts,tsx,css}', './public/index.html'],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
       colors: {
-        'card': {
-          light: "#FFFFFF",
+        'theme-loader': {
+          light: "#FAFAFA",
           dark: "#201f28"
         },
-        'body': {
-          light: "#FFFFFF",
-          dark: '#130f17'
+        'theme-navbar': {
+          light: "#FAFAFA",
+          dark: "#222831"
+        },
+        'theme-primary': "#00ADB5",
+        'theme-secondary': {
+          light: "#EEEEEE",
+          dark: '#2D323A'
         }
       },
-      transitionDuration: {
-        '250': '250ms'
-      }
     },
   },
   variants: {
