@@ -1,5 +1,7 @@
 import React from 'react';
 import {Logo} from "./icons/Logo";
+import {GitHub} from "./icons/GitHub";
+import {Email} from "./icons/Email";
 
 
 export default class App extends React.Component<any, AppState> {
@@ -12,7 +14,12 @@ export default class App extends React.Component<any, AppState> {
           <span className={"block"}>Come back soon!</span>
         </div>
         <div className={"flex gap-x-4"}>
-
+          <a href="https://github.com/RaymondSalim" target="_blank" rel="noreferrer noopener" className={"text-white hover:text-theme-primary-hover"}>
+            <GitHub/>
+          </a>
+          <a href="mailto:raymond@raymonds.dev" target="_blank" rel="noreferrer noopener" className={"text-white hover:text-theme-primary-hover"}>
+            <Email/>
+          </a>
         </div>
       </div>
     );
