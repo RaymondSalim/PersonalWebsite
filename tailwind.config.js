@@ -4,6 +4,12 @@ module.exports = {
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
+      height: {
+        logo: '42px'
+      },
+      width: {
+        logo: '42px'
+      },
       colors: {
         'theme-loader': {
           light: "#FAFAFA",
@@ -14,11 +20,15 @@ module.exports = {
           dark: "#222831"
         },
         'theme-primary': "#00ADB5",
+        'theme-primary-hover': "#00c8d0",
         'theme-secondary': {
           light: "#EEEEEE",
           dark: '#2D323A'
         }
       },
+      outline: {
+        theme: '2px dashed '
+      }
     },
   },
   variants: {
