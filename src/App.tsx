@@ -11,7 +11,9 @@ export default class App extends React.Component<any, AppState> {
         <div></div>
         <div className={"flex flex-col items-center gap-y-4"}>
           <Logo classList={"h-24 w-24"}/>
-          <div className={"text-lg text-theme-secondary-light flex flex-col items-center"}>
+          <div className={"text-lg text-theme-secondary-light flex flex-col items-center"} style={{
+            fontFamily: "Montserrat"
+          }}>
             <span className={"block"}>Site under construction.</span>
             <span className={"block"}>Come back soon!</span>
           </div>
