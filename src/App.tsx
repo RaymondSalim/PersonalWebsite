@@ -57,7 +57,6 @@ export default class App extends React.Component<any, AppState> {
   isDarkModeEnabled(): boolean {
     let saved = getItemFromLocalStorage(DarkModeToggle.localStorageKey)
     let system = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-    console.log(`isDarkModeEnabled: ${saved ?? system}`)
     return saved ?? system
   }
 
