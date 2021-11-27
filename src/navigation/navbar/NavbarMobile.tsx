@@ -5,10 +5,11 @@ import {Menu, MenuProps} from "../menu/Menu";
 import BaseProps from "../../common/interface/BaseProps";
 
 export class NavbarMobile extends React.Component<NavbarMobileProps> {
+  static elementID = "navbarMobile"
   render() {
     return (
       <nav
-        id="navbarMobile"
+        id={NavbarMobile.elementID}
         className="md:hidden bg-theme-secondary-light dark:bg-theme-secondary-dark z-50 fixed w-full top-0  h-header flex justify-between transform transition-all duration-[250ms] px-4"
       >
         <Logo classList={"text-theme-primary p-1 self-center h-w-header-scroll ml-3 z-40"}/>

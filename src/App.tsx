@@ -1,10 +1,9 @@
 import React, {SyntheticEvent} from 'react';
-import {NavbarMobile} from "./navigation/navbar/NavbarMobile";
+import {NavbarMobileProps} from "./navigation/navbar/NavbarMobile";
 import {PageLoad} from "./PageLoad";
-import {HamburgerProps} from "./navigation/navbar/Hamburger";
-import {MenuProps} from "./navigation/menu/Menu";
 import {getItemFromLocalStorage, setItemInLocalStorage} from "./util/LocalStorage";
 import {DarkModeToggle} from "./DarkModeToggle";
+import {Header} from "./navigation/Header";
 
 
 export default class App extends React.Component<any, AppState> {
@@ -63,22 +62,22 @@ export default class App extends React.Component<any, AppState> {
   }
 
   render() {
-    let hamburgerProps: HamburgerProps = {
-      isActive: this.state.menuActive,
-      onclick: this.toggleMenu
-    }
-    let menuProps: MenuProps = {
-      isOpen: this.state.menuActive,
-      onItemClick: this.toggleMenu,
-      darkModeToggle: this.toggleDarkMode,
-      darkMode: this.state.darkMode,
+    let navbarMobileProps: NavbarMobileProps = {
+      hamburger: {
+        isActive: this.state.menuActive,
+        onclick: this.toggleMenu
+      },
+      menu: {
+        isOpen: this.state.menuActive,
+        onItemClick: this.toggleMenu,
+        darkModeToggle: this.toggleDarkMode,
+        darkMode: this.state.darkMode,
+      }
     }
     return (
       <div className={"antialiased relative bg-theme-secondary-light dark:bg-theme-secondary-dark"} >
         <PageLoad siteReady={this.state.siteReady} />
-        <header>
-          <NavbarMobile hamburger={hamburgerProps} menu={menuProps}/>
-        </header>
+        <Header navBarMobileProps={navbarMobileProps}/>
         <main className={`${this.state.menuActive ? 'blur-sm brightness-75' : ''} transition-all ease-in duration-150`}>
           <img
             src="https://images.unsplash.com/photo-1593642702749-b7d2a804fbcf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
