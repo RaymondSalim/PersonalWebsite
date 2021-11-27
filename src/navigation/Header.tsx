@@ -13,7 +13,6 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
     this.setState({
       windowY: window.scrollY
     })
-
     this.toggleOnScroll()
   }
 
@@ -22,15 +21,22 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
       let scrollPos = window.scrollY
       let navMobile = document.querySelector(`#${NavbarMobile.elementID}`)
 
-      if (this.state.windowY < scrollPos) { // Scrolling down
+      let yLessThan90 = scrollPos < 90
+      navMobile?.classList.toggle('h-header', yLessThan90)
+      navMobile?.classList.toggle('h-header-scroll', !yLessThan90)
+
+
+      if (this.state.windowY < scrollPos && scrollPos > 150) { // Scrolling down
         navMobile?.classList.toggle('-translate-y-full', true)
       } else {
         navMobile?.classList.toggle('-translate-y-full', false)
       }
+
       this.setState({
         windowY: window.scrollY
       })
     })
+    window.scroll()
   }
 
   render() {
