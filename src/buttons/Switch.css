@@ -13,6 +13,7 @@
 }
 
 .toggle {
+    @apply focus-within:ring-2 focus-within:ring-theme-primary;
     height: 32px;
     width: 80px;
     background: var(--black);
