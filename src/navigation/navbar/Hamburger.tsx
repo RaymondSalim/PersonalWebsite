@@ -16,7 +16,7 @@ export class Hamburger extends React.Component<HamburgerProps> {
     return (
       <button
         onClick={this.handleClick} // Using custom function for future uses
-        className={`h-full z-40 mr-4 flex items-center ${this.props.class ?? ''} ${this.props.isActive ? 'active' : 'inactive'}`}
+        className={`h-full z-40 flex items-center relative ${this.props.class ?? ''} ${this.props.isActive ? 'active' : 'inactive'}`}
         style={{outline: 'none'}}
         type="button">
         <div className="burger-container">

@@ -1,7 +1,9 @@
 import {NavbarMobile, NavbarMobileProps} from "./navbar/NavbarMobile";
 import React from "react";
+import {Logo} from "../icons/Logo";
 
 export class Header extends React.Component<HeaderProps, HeaderState> {
+  static elementID = "header"
   constructor(props: HeaderProps) {
     super(props);
     this.state =  {
@@ -25,7 +27,7 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
         return
       }
 
-      let navMobile = document.querySelector(`#${NavbarMobile.elementID}`)
+      let navMobile = document.querySelector(`#${Header.elementID}`)
 
       let yLessThan90 = scrollPos < 90
       navMobile?.classList.toggle('h-header', yLessThan90)
@@ -47,11 +49,12 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
 
   render() {
     return (
-      <header>
-        <nav
-          id={NavbarMobile.elementID}
-          className="bg-theme-secondary-light dark:bg-theme-secondary-dark z-50 fixed w-full top-0  h-header flex flex-col justify-center transform transition-all duration-[250ms] px-4"
-        >
+      <header
+        id={Header.elementID}
+        className="bg-theme-secondary-light dark:bg-theme-secondary-dark z-50 fixed w-full top-0  h-header flex justify-between transform transition-all duration-[250ms] px-4"
+      >
+        <Logo classList={"text-theme-primary p-1 h-[calc(var(--header-height-scroll)-1rem)] w-[calc(var(--header-height-scroll)-1rem)] my-auto ml-3 z-40"}/>
+        <nav className={"h-[fit-content] my-auto"}>
           <NavbarMobile hamburger={this.props.navBarMobileProps.hamburger} menu={this.props.navBarMobileProps.menu}/>
         </nav>
       </header>
