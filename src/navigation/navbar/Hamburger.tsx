@@ -16,12 +16,14 @@ export class Hamburger extends React.Component<HamburgerProps> {
     return (
       <button
         onClick={this.handleClick} // Using custom function for future uses
-        className={`hamburger hamburger--spring h-full z-40 flex items-center ${this.props.class ?? ''} ${this.props.isActive ? 'is-active' : ''}`}
+        className={`h-full z-40 mr-4 flex items-center ${this.props.class ?? ''} ${this.props.isActive ? 'active' : 'inactive'}`}
         style={{outline: 'none'}}
         type="button">
-      <span className={"hamburger-box"}>
-        <span className={"hamburger-inner"} />
-      </span>
+        <div className="burger-container">
+          <div className="burger">
+            <div/>
+          </div>
+        </div>
   </button>
     )
   }
