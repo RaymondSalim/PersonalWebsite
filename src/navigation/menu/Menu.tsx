@@ -9,17 +9,20 @@ import BaseProps from "../../common/interface/BaseProps";
 
 export class Menu extends React.Component<MenuProps> {
   render() {
-    let cls;
+    let cls, tabIndex;
     if (this.props.isOpen) {
-      cls = '-translate-x-full'
+      cls = '-translate-x-full visible'
+      tabIndex = 1;
     } else {
-      cls = ''
+      cls = 'invisible'
+      tabIndex = -1;
     }
 
     return (
-      <>
-        <div
+        <aside
+          aria-hidden={!this.props.isOpen}
           id="mobileMenu"
+          tabIndex={tabIndex}
           className={cls}
         >
           <ul>
@@ -51,8 +54,7 @@ export class Menu extends React.Component<MenuProps> {
           <div className={'mt-auto'}>
             <DarkModeToggle initialState={this.props.darkMode} onChange={this.props.darkModeToggle}/>
           </div>
-        </div>
-      </>
+        </aside>
     );
   }
 }
