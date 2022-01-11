@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     if: contains(github.event.comment.html_url, '/pull/')
     steps:
-      - name: run deploy.sh
+#      - name: run deploy.sh
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
