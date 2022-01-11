@@ -2,7 +2,7 @@ name: deploy-on-merge
 on:
   issue_comment:
     types: [created, edited]
-  pull_request:
+  push:
     branches:
       - test/gh-action
 jobs:
