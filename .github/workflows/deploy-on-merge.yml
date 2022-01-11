@@ -3,11 +3,9 @@ on:
   issue_comment:
     types: [created, edited]
 jobs:
-  deploy-stg:
+  deploy_stg:
     runs-on: ubuntu-latest
-    if: |
-#      github.ref == 'refs/heads/staging' &&
-      contains(github.event.comment.html_url, '/pull/')
+    if: contains(github.event.comment.html_url, '/pull/')
     steps:
       - name: run deploy.sh
       - uses: actions/setup-node@v2
