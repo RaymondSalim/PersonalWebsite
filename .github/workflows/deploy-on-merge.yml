@@ -1,14 +1,12 @@
 name: deploy-on-merge
 on:
   issue_comment:
-    types: [created, edited]
-  push:
-    branches:
-      - test/gh-action
+    types: [ created, deleted ]
+
 jobs:
   deploy_stg:
     runs-on: ubuntu-latest
-    if: contains(github.event.comment.html_url, '/pull/')
+    if: ${{ github.event.issue.pull_request }}
     steps:
 #      - name: run deploy.sh
       - uses: actions/checkout@v2
