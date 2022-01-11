@@ -1,6 +1,12 @@
 # Changelog
 <hr>
 
+### • v0.5.2 (2021-01-11)
+```markdown
+- Implemented staticrypt
+  - Deployment on staging server is encrypted
+```
+
 ### • v0.5.1 (2021-01-11)
 ```markdown
 - Implemented gh-pages

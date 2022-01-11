@@ -14,10 +14,11 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m'
 
-while getopts :e:y flags; do
+while getopts e:p:y flags; do
   case "${flags}" in
     e) ENV=${OPTARG,,};;
     y) NOPROMPT=1;;
+    p) CRYPTPASS=${OPTARG};;
     *) echo -e "${RED}[ERROR]${NC} Unknown flag"
       exit 1;;
   esac
@@ -37,6 +38,11 @@ if [[ ! " ${allowedEnv[*],,} " =~ " ${ENV} " ]]; then
 fi
 
 if [ "${ENV}" = "${stg}" ]; then
+  # Check if -p flag exists
+  if [ -z "$CRYPTPASS" ]; then
+    read -srp $'Enter encryption key\n' CRYPTPASS
+  fi
+
   domain='staging.raymonds.dev'
   repo='git@github.com:RaymondSalim/PersonalWebsite_Staging.git'
 elif [ "${ENV}" = "${prod}" ]; then
@@ -47,6 +53,12 @@ fi
 echo -e "${YELLOW}Generating files${NC}"
 npm run build > /dev/null
 echo "${domain}" > ./build/CNAME
+
+# Encrypt file if staging env
+if [ "${ENV}" = "${stg}" ]; then
+  npx staticrypt './build/index.html' "$CRYPTPASS" -o './build/index.html'
+fi
+
 echo -e "${GREEN}\nFile generated successfully${NC}"
 
 if [ $NOPROMPT -ne 1 ]; then
