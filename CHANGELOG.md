@@ -1,6 +1,14 @@
 # Changelog
 <hr>
 
+### • v0.5.3 (2021-01-13)
+```markdown
+- Implemented GitHub Actions
+  - Triggered on:
+    - PR Close
+    - PR Comment with specific keyword
+```
+
 ### • v0.5.2 (2021-01-11)
 ```markdown
 - Implemented staticrypt
