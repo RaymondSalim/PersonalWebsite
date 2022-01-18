@@ -1,17 +1,17 @@
-import BaseProps from "../common/interface/BaseProps";
+import {IconProps} from "../common/interface/IconProps";
 
-export default function Sun(props?: SunProps) {
+export default function Sun(props?: IconProps) {
   return (
     <svg
-      className={props?.classList}
+      className={props?.className}
       fill="none"
-      height="24"
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="2"
+      height={props?.height ?? "24"}
+      width={props?.width ?? "24"}
       viewBox="0 0 24 24"
-      width="24"
       xmlns="http://www.w3.org/2000/svg"
     >
       <circle
@@ -69,8 +69,4 @@ export default function Sun(props?: SunProps) {
       />
     </svg>
   );
-}
-
-export interface SunProps extends BaseProps{
-  darkMode?: boolean
 }
