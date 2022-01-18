@@ -10,7 +10,7 @@ jobs:
       github.event.issue.pull_request && 
       github.event.comment.author_association == 'OWNER'
     outputs:
-      baseRef: ${{ steps.repo_details.baseRef }}
+      baseRef: ${{ steps.repo_details.outputs.baseRef }}
     steps:
       - name: Get repository details
         id: repo_details
@@ -31,7 +31,7 @@ jobs:
         with:
           node-version: '16'
       - run: echo 'Deploying to staging'
-      - run: npm deploy-stg -- -p ${{ secrets.STG_ENCRYPT_KEY }}
+      - run: npm run deploy-stg -- -p ${{ secrets.STG_ENCRYPT_KEY }}
 
   deploy-prod:
     runs-on: ubuntu-latest
@@ -45,4 +45,4 @@ jobs:
         with:
           node-version: '16'
       - run: echo 'Deploying to production'
-      - run: npm deploy-prod
+      - run: npm run deploy-prod

@@ -50,6 +50,9 @@ elif [ "${ENV}" = "${prod}" ]; then
   repo='git@github.com:RaymondSalim/PersonalWebsite.git'
 fi
 
+echo -e "${YELLOW}Installing dependencies${NC}"
+npm install > /dev/null
+
 echo -e "${YELLOW}Generating files${NC}"
 npm run build > /dev/null
 echo "${domain}" > ./build/CNAME
