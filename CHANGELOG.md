@@ -1,6 +1,13 @@
 # Changelog
 <hr>
 
+### • v0.5.4 (2021-01-18)
+```markdown
+- Added navbar for desktop site
+- New single icon mode for dark mode toggle
+- Other new utilities
+```
+
 ### • v0.5.3_HOTFIX (2021-01-18)
 ```markdown
 - Fix GitHub Actions & Deploy Script
