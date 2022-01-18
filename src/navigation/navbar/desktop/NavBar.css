@@ -1,0 +1,7 @@
+#navbar-desktop {
+    @apply hidden md:block mr-4;
+}
+
+#navbar-desktop li a {
+    @apply p-2 rounded-lg transition-colors duration-300 hover:text-theme-primary dark:text-white dark:hover:text-theme-primary;
+}

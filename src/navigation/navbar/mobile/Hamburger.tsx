@@ -1,6 +1,6 @@
 import React, {SyntheticEvent} from "react";
 import './Hamburger.css'
-import BaseProps from "../../common/interface/BaseProps";
+import BaseProps from "../../../common/interface/BaseProps";
 
 export class Hamburger extends React.Component<HamburgerProps> {
   constructor(props: HamburgerProps | Readonly<HamburgerProps>) {

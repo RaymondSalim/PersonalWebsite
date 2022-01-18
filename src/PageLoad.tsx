@@ -26,7 +26,7 @@ export class PageLoad extends React.Component<PageLoadProps, PageLoadState> {
         className={`fixed flex justify-center items-center min-h-screen left-0 right-0 top-0 bg-theme-loader-light dark:bg-theme-loader-dark transform transition-transform duration-500 ${this.props.siteReady && this.state.animationDone ? '-translate-y-full' : ''}`}
       >
           <div>
-            <Logo classList="h-28 w-28" wantAnimation={true} animationCallback={this.animationDone}/>
+            <Logo className="h-28 w-28" wantAnimation={true} animationCallback={this.animationDone}/>
           </div>
       </div>
     );
