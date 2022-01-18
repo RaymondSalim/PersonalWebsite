@@ -50,6 +50,9 @@ elif [ "${ENV}" = "${prod}" ]; then
   repo='git@github.com:RaymondSalim/PersonalWebsite.git'
 fi
 
+echo -e "${YELLOW}Installing dependencies${NC}"
+npm install --quiet > /dev/null
+
 echo -e "${YELLOW}Generating files${NC}"
 npm run build > /dev/null
 echo "${domain}" > ./build/CNAME
@@ -61,7 +64,7 @@ fi
 
 echo -e "${GREEN}\nFile generated successfully${NC}"
 
-if [ $NOPROMPT -ne 1 ]; then
+if [[ "$NOPROMPT" -ne 1 ]]; then
   # Ensure input is only (y/n)
   # shellcheck disable=SC2076
   while [[ ! " ${allowedYn[*],,} " =~ " ${deployConf,,} " ]]; do
