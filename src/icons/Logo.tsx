@@ -29,7 +29,7 @@ export class Logo extends React.Component<LogoProps> {
     return (
       <svg
             xmlns="http://www.w3.org/2000/svg"
-            className={`text-theme-primary ${this.props.classList}`}
+            className={`text-theme-primary ${this.props.className}`}
             id="logo"
             viewBox="0 0 132.10498 132.10498"
             fill="none"

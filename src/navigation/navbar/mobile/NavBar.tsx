@@ -1,9 +1,9 @@
 import React from "react";
 import {Hamburger, HamburgerProps} from "./Hamburger";
-import {Menu, MenuProps} from "../menu/Menu";
-import BaseProps from "../../common/interface/BaseProps";
+import {Menu, MenuProps} from "../../menu/Menu";
+import BaseProps from "../../../common/interface/BaseProps";
 
-export class NavbarMobile extends React.Component<NavbarMobileProps> {
+export class NavBar extends React.Component<NavbarMobileProps> {
   private readonly menuRef: React.RefObject<HTMLElement>;
   private readonly burgerRef: React.RefObject<HTMLButtonElement>;
   constructor(props: NavbarMobileProps) {
