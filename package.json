@@ -26,8 +26,8 @@
     "test": "craco test",
     "eject": "react-scripts eject",
     "deploy": "./config/deploy.sh",
-    "deploy-stg": "./config/deploy.sh -ye staging",
-    "deploy-prod": "./config/deploy.sh -ye production"
+    "deploy-stg": "./config/deploy.sh -y -e staging",
+    "deploy-prod": "./config/deploy.sh -y -e production"
   },
   "eslintConfig": {
     "extends": [
