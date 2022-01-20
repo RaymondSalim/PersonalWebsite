@@ -50,18 +50,28 @@ elif [ "${ENV}" = "${prod}" ]; then
   repo='git@github.com:RaymondSalim/PersonalWebsite.git'
 fi
 
-echo -e "${YELLOW}Generating files${NC}"
+echo -e "${YELLOW}Installing dependencies${NC}"
+npm install --quiet > /dev/null
+
+echo -e "${YELLOW}Print current dir${NC}"
+pwd
+ls -lah
+
+echo -e "${YELLOW}Building files${NC}"
 npm run build > /dev/null
+
+echo -e "${YELLOW}Generating CNAME${NC}"
 echo "${domain}" > ./build/CNAME
 
 # Encrypt file if staging env
 if [ "${ENV}" = "${stg}" ]; then
+  echo -e "${YELLOW}Encrypting HTML page{NC}"
   npx staticrypt './build/index.html' "$CRYPTPASS" -o './build/index.html'
 fi
 
 echo -e "${GREEN}\nFile generated successfully${NC}"
 
-if [ $NOPROMPT -ne 1 ]; then
+if [[ "$NOPROMPT" -ne 1 ]]; then
   # Ensure input is only (y/n)
   # shellcheck disable=SC2076
   while [[ ! " ${allowedYn[*],,} " =~ " ${deployConf,,} " ]]; do
