@@ -1,6 +1,11 @@
 # Changelog
 <hr>
 
+### • v0.5.3_HOTFIX (2021-01-20)
+```markdown
+- Fix GitHub Actions & Deploy Script
+```
+
 ### • v0.5.3 (2021-01-13)
 ```markdown
 - Implemented GitHub Actions
