@@ -4,7 +4,7 @@ import {User} from "../../icons/User";
 import {Work} from "../../icons/Work";
 import {Project} from "../../icons/Project";
 import {Contact} from "../../icons/Contact";
-import {DarkModeToggle} from "../../DarkModeToggle";
+import {DarkModeToggle} from "../../util/darkmode/DarkModeToggle";
 import BaseProps from "../../common/interface/BaseProps";
 
 export class Menu extends React.Component<MenuProps> {
@@ -57,7 +57,7 @@ export class Menu extends React.Component<MenuProps> {
             </li>
           </ul>
           <div className={'mt-auto mb-16'}>
-            <DarkModeToggle initialState={this.props.darkMode} onChange={this.props.darkModeToggle}/>
+            <DarkModeToggle isDarkModeEnabled={this.props.darkMode} onChange={this.props.darkModeToggle} singleIconMode={false}/>
           </div>
         </aside>
     );

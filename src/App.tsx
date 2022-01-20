@@ -1,8 +1,8 @@
 import React, {SyntheticEvent} from 'react';
-import {NavbarMobileProps} from "./navigation/navbar/NavbarMobile";
+import {NavbarMobileProps} from "./navigation/navbar/mobile/NavBar";
 import {PageLoad} from "./PageLoad";
 import {getItemFromLocalStorage, setItemInLocalStorage} from "./util/LocalStorage";
-import {DarkModeToggle} from "./DarkModeToggle";
+import {DarkModeToggle} from "./util/darkmode/DarkModeToggle";
 import {Header} from "./navigation/Header";
 
 
@@ -38,7 +38,7 @@ export default class App extends React.Component<any, AppState> {
   }
 
   toggleDarkMode = (e: SyntheticEvent) => {
-    let isDark = (e.target as HTMLInputElement).checked
+    let isDark = (e.target as HTMLInputElement).checked ?? !this.isDarkModeEnabled()
     setItemInLocalStorage(DarkModeToggle.localStorageKey, isDark)
     this.setState({
       darkMode: isDark
