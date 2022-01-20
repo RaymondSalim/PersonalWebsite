@@ -172,6 +172,6 @@ if [ "n" = "${deployConf,,}" ]; then
 fi
 
 print_info "Start deployment to env:${ENV}"
-gh-pages -d build --repo="${REPO_URL}}"
+gh-pages -d build --repo="${REPO_URL}"
 print_success "Deployment successful"
 exit 0
