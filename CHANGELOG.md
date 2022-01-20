@@ -1,6 +1,11 @@
 # Changelog
 <hr>
 
+### • v0.5.5 (2021-01-21)
+```markdown
+- Fix GitHub Actions & Deploy Script (again..)
+```
+
 ### • v0.5.4 (2021-01-18)
 ```markdown
 - Added navbar for desktop site
