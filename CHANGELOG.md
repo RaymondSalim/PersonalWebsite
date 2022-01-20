@@ -1,6 +1,11 @@
 # Changelog
 <hr>
 
+### • v0.5.5_HOTFIX (2021-01-21)
+```markdown
+- Fix typo in deploy script
+```
+
 ### • v0.5.5 (2021-01-21)
 ```markdown
 - Fix GitHub Actions & Deploy Script (again..)
