@@ -132,7 +132,7 @@ elif [ "${ENV}" = "${PROD}" ]; then
 fi
 
 if [[ -n $TOKEN ]]; then
-  REPO_URL="https://git:${TOKEN}@github.com/${REPO}.git"
+  REPO_URL="https://git:${TOKEN}@github.com/RaymondSalim/${REPO}.git"
 else
   REPO_URL="git@github.com:RaymondSalim/${REPO}.git"
 fi
@@ -172,6 +172,6 @@ if [ "n" = "${deployConf,,}" ]; then
 fi
 
 print_info "Start deployment to env:${ENV}"
-gh-pages -d build --repo="${REPO_URL}}"
+gh-pages -d build --repo="${REPO_URL}"
 print_success "Deployment successful"
 exit 0
