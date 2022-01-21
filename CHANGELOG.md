@@ -1,6 +1,12 @@
 # Changelog
 <hr>
 
+### • v0.5.5_HOTFIX (2021-01-21)
+```markdown
+- Fix typo in deploy script
+- Added -u flag to gh-pages
+```
+
 ### • v0.5.5 (2021-01-21)
 ```markdown
 - Fix GitHub Actions & Deploy Script (again..)
