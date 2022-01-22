@@ -42,13 +42,11 @@
 .burger::before {
     width: var(--burger-width-before);
     top: var(--burger-top-before);
-    transition: opacity var(--animation-time);
 }
 
 .burger::after {
     width: var(--burger-width-after);
     top: var(--burger-top-after);
-    transform: rotate(0deg);
 }
 
 .active .burger::after {
@@ -77,25 +75,25 @@
 
 @keyframes b-after-open {
     0% {
-        @apply rotate-0;
+        transform: rotate(0deg);
         width: var(--burger-width-after);
-        top: var(--burger-top-after);
-    }
-
-    25% {
-        @apply rotate-0;
-        width: var(--burger-width);
         top: var(--burger-top-after);
     }
 
     50% {
         @apply rotate-0;
         width: var(--burger-width);
+        top: var(--burger-top-after);
+    }
+
+    75% {
+        transform: rotate(0deg);
+        width: var(--burger-width);
         top: var(--burger-top-before);
     }
 
     100% {
-        @apply rotate-45;
+        transform: rotate(45deg);
         width: var(--burger-width);
         top: var(--burger-top-before);
     }
@@ -103,13 +101,13 @@
 
 @keyframes b-after-close {
     0% {
-        @apply rotate-45;
+        transform: rotate(45deg);
         width: var(--burger-width);
         top: var(--burger-top-before);
     }
 
     25% {
-        @apply rotate-0;
+        transform: rotate(0deg);
         width: var(--burger-width);
         top: var(--burger-top-before);
     }
@@ -121,7 +119,7 @@
     }
 
     100% {
-        @apply rotate-0;
+        transform: rotate(0deg);
         width: var(--burger-width-after);
         top: var(--burger-top-after);
     }
@@ -133,30 +131,28 @@
         width: var(--burger-width-before);
     }
 
-    25% {
-        @apply opacity-100 translate-x-0;
+    50% {
+        @apply opacity-0 translate-x-0;
         width: var(--burger-width);
     }
-
-    50%,
     100% {
-        @apply translate-x-full opacity-0;
+        @apply /*translate-x-full */opacity-0;
         width: var(--burger-width);
     }
 }
 
 @keyframes b-before-close {
-    0%,
+    0% {
+        @apply /*translate-x-full */opacity-0;
+        width: var(--burger-width);
+    }
+
     50% {
-        @apply translate-x-full opacity-0;
+        @apply opacity-0 translate-x-0;
         width: var(--burger-width);
     }
 
-    75% {
-        @apply opacity-100 translate-x-0;
-        width: var(--burger-width);
-    }
-
+    75%,
     100% {
         @apply opacity-100 translate-x-0;
         width: var(--burger-width-before);
@@ -164,34 +160,41 @@
 }
 
 @keyframes b-open {
-    0%,
-    25% {
+    0% {
         @apply top-0 rotate-0;
     }
 
     50% {
-        @apply rotate-0;
+        @apply top-0;
+        transform: rotate(0deg);
+    }
+
+    75% {
+        transform: rotate(0deg);
         top: var(--burger-top-before);
     }
 
     100% {
-        @apply -rotate-45;
+        transform: rotate(-45deg);
         top: var(--burger-top-before);
-    }
-}
+    }}
 
 @keyframes b-close {
     0% {
-        @apply -rotate-45;
+        transform: rotate(-45deg);
+        top: var(--burger-top-before);
+    }
+
+    25% {
+        transform: rotate(0deg);
         top: var(--burger-top-before);
     }
 
     50% {
-        @apply rotate-0;
-        top: var(--burger-top-before);
+        @apply top-0;
+        transform: rotate(0deg);
     }
 
-    75%,
     100% {
         @apply top-0 rotate-0;
     }
