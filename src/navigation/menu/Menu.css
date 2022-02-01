@@ -8,11 +8,20 @@
 }
 
 #mobileMenu li a {
-    @apply dark:text-white hover:text-theme-primary dark:hover:text-theme-primary flex items-center;
+    @apply flex items-center;
+}
+
+#mobileMenu li a svg {
+    @apply dark:text-white transition-colors duration-200;
+}
+
+#mobileMenu li a:hover span,
+#mobileMenu li a:hover svg {
+    @apply text-theme-primary dark:text-theme-primary;
 }
 
 #mobileMenu li a span{
-    @apply text-xl ml-8 p-4 flex justify-center align-middle ;
+    @apply text-xl ml-8 p-4 flex justify-center align-middle dark:text-white transition-colors duration-200;
     font-family: 'Montserrat', sans-serif;
 }
 

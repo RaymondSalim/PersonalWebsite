@@ -10,16 +10,88 @@
     --header-dark:  rgb(6, 8, 12, var(--tw-bg-opacity));
 }
 
-*:focus {
-    @apply focus:ring-2 focus:ring-theme-primary outline-none;
+a:focus,
+button:focus {
+    @apply ring-2 ring-theme-primary outline-none;
 }
 
 body {
     font-family: 'Montserrat', sans-serif;
 }
 
-button {
-    @apply p-4 rounded-lg;
+/* Headings & texts */
+h1, h2, h3, h4, h5, h6, a, span, p {
+    @apply dark:text-white relative;
+}
+
+h1 {
+    @apply text-4xl font-bold my-7;
+}
+
+h2 {
+    @apply text-3xl font-semibold dark:text-gray-400 my-4;
+}
+
+h1::before,
+h1::after,
+h2::before,
+h2::after,
+p::after,
+p::before {
+    @apply text-gray-400 dark:text-gray-600 text-base absolute -left-4 font-medium sm:text-lg lg:text-xl ;
+    font-family: 'Caveat', cursive;
+}
+
+h1::before {
+    @apply -mt-6;
+    content: "<h1>";
+}
+
+h1::after {
+    @apply -bottom-6;
+    content: "</h1>";
+}
+
+h2::before {
+    @apply -mt-5;
+    content: "<h2>";
+}
+
+h2::after {
+    @apply -bottom-5;
+    content: "</h2>";
+}
+
+p::before {
+    @apply -mt-5;
+    content: "<p>";
+}
+
+p::after {
+    @apply -bottom-5;
+    content: "</p>";
+}
+
+#section-home {
+    @apply h-screen relative;
+}
+
+#home-content {
+    @apply flex flex-col h-full justify-center;
+}
+
+#home-content h1 {
+    @apply font-medium;
+    font-size: clamp(2.25rem, 8vw, 5rem);
+    line-height: clamp(2.25rem, 8vw, 5rem);
+}
+
+#home-content h1 > span {
+    @apply hover:text-theme-primary transition-colors duration-200;
+}
+
+#home-content p {
+    @apply my-10 text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold dark:text-gray-400 text-gray-500;
 }
 
 @layer utilities {
