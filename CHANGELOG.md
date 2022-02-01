@@ -1,6 +1,12 @@
 # Changelog
 <hr>
 
+### • v0.5.6 (2021-02-01)
+```markdown
+- Fix buggy hamburger icon animation
+- Added first page/headline
+```
+
 ### • v0.5.5_HOTFIX (2021-01-21)
 ```markdown
 - Fix typo in deploy script
