@@ -3,5 +3,13 @@
 }
 
 #navbar-desktop li a {
-    @apply p-2 rounded-lg transition-colors duration-300 hover:text-theme-primary dark:text-white dark:hover:text-theme-primary;
+    @apply p-2 rounded-lg;
+}
+
+#navbar-desktop li a span {
+    @apply dark:text-white transition-colors duration-200;
+}
+
+#navbar-desktop li a:hover span {
+    @apply text-theme-primary dark:text-theme-primary;
 }
