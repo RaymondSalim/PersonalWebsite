@@ -4,6 +4,7 @@ import {PageLoad} from "./PageLoad";
 import {getItemFromLocalStorage, setItemInLocalStorage} from "./util/LocalStorage";
 import {DarkModeToggle} from "./util/darkmode/DarkModeToggle";
 import {Header} from "./navigation/Header";
+import {Button} from "./buttons/Button";
 
 
 export default class App extends React.Component<any, AppState> {
@@ -77,27 +78,14 @@ export default class App extends React.Component<any, AppState> {
       <div className={"antialiased relative bg-theme-secondary-light dark:bg-theme-secondary-dark"} >
         <PageLoad siteReady={this.state.siteReady} />
         <Header navBarMobileProps={navbarMobileProps}/>
-        <main className={`${this.state.menuActive ? 'blur-sm brightness-75' : ''} transition-all ease-in duration-150`}>
-          <img
-            src="https://images.unsplash.com/photo-1593642702749-b7d2a804fbcf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
-            alt=""
-          />
-          <img
-            src="https://images.unsplash.com/photo-1593642702749-b7d2a804fbcf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
-            alt=""
-          />
-          <img
-            src="https://images.unsplash.com/photo-1593642702749-b7d2a804fbcf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
-            alt=""
-          />
-          <img
-            src="https://images.unsplash.com/photo-1593642702749-b7d2a804fbcf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
-            alt=""
-          />
-          <img
-            src="https://images.unsplash.com/photo-1593642702749-b7d2a804fbcf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
-            alt=""
-          />
+        <main className={`${this.state.menuActive ? 'blur-sm brightness-75' : ''} transition-all ease-in duration-150 mx-8 sm:mx-10 md:mx-14 lg:mx-20 xl:mx-24`}>
+          <section id="section-home">
+            <div id="home-content">
+                <h1>Hi, my<br/>name is <span><strong>Raymond</strong></span>.</h1>
+                <p>I'm a software engineer specializing in backend development.</p>
+                <Button text={"Hire me!"} className={"px-8 py-4 mt-4"} href={"#contact"}/>
+            </div>
+          </section>
           <footer>
             <div>
               <span>Icons by </span>
