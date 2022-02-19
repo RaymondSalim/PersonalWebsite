@@ -84,15 +84,15 @@ export default class App extends React.Component<any, AppState> {
       }
     }
 
-    let skills: {icon: JSX.Element, padding: string}[] = [
-      {"icon": <Gopher/>, "padding": "p-4"},
-      {"icon": <Typescript/>, "padding": "p-5"},
-      {"icon": <Python/>, "padding": "p-4"},
-      {"icon": <Kotlin/>, "padding": "p-5"},
-      {"icon": <Java/>, "padding": "p-4"},
-      {"icon": <PostgreSQL/>, "padding": "p-5"},
-      {"icon": <HTML/>, "padding": "p-5"},
-      {"icon": <Jenkins/>, "padding": "p-4"},
+    let skills: {icon: JSX.Element, label: string, padding: string}[] = [
+      {"icon": <Gopher/>, label: "Gopher", "padding": "p-4"},
+      {"icon": <Typescript/>, label: "Typescript", "padding": "p-5"},
+      {"icon": <Python/>, label: "Python", "padding": "p-4"},
+      {"icon": <Kotlin/>, label: "Kotlin", "padding": "p-5"},
+      {"icon": <Java/>, label: "Java", "padding": "p-4"},
+      {"icon": <PostgreSQL/>, label: "PostgreSQL", "padding": "p-5"},
+      {"icon": <HTML/>, label: "HTML", "padding": "p-5"},
+      {"icon": <Jenkins/>, label: "Jenkins", "padding": "p-4"},
     ]
     return (
         <div className={"antialiased relative bg-theme-secondary-light dark:bg-theme-secondary-dark"} >
@@ -127,6 +127,7 @@ export default class App extends React.Component<any, AppState> {
                   <div className={"row-start-1 md:col-start-1"}>
                     <div className={"multiple-p"}>
                       <p>I am passionate about creating software that improves and simplifies lives of those around me. My interest in software development started back in 2019 when I stumbled upon a youtube tutorial on building an android application.</p>
+                      {/*TODO! Replace company name with links*/}
                       <p className={"after:content-none md:after:p-after"}>Fast forward to today, I have developed software for clients ranging from individuals to large enterprise corporations such as Tokopedia, Kalbe Farma, and Mandiri.</p>
                     </div>
                   </div>
@@ -142,7 +143,8 @@ export default class App extends React.Component<any, AppState> {
                   <div className="row-start-3 md:row-start-2 md:col-span-full">
                     <p>Here are a few technologies I've been working with recently:</p>
                     <div className={"skills-flex-container"}>
-                      {skills.map(v => <Skill iconClassName={v.padding} icon={v.icon} /> )}
+                      {/*TODO! On mobile scroll animation*/}
+                      {skills.map(v => <Skill label={v.label} icon={v.icon} iconClassName={v.padding}/> )}
                     </div>
                   </div>
                 </div>
