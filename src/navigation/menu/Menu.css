@@ -3,6 +3,11 @@
     bg-theme-navbar-light dark:bg-theme-navbar-dark transform transition-all flex flex-col;
 }
 
+#mobileMenu ul::before,
+#mobileMenu ul::after {
+    @apply content-none;
+}
+
 #mobileMenu li {
     @apply p-4 flex justify-start items-center;
 }
