@@ -13,6 +13,7 @@ import {Kotlin} from "./icons/Kotlin";
 import {Java} from "./icons/Java";
 import {PostgreSQL} from "./icons/PostgreSQL";
 import {HTML} from "./icons/HTML";
+import {Skill} from "./icons/Skill";
 
 
 export default class App extends React.Component<any, AppState> {
@@ -82,6 +83,17 @@ export default class App extends React.Component<any, AppState> {
         darkMode: this.state.darkMode,
       }
     }
+
+    let skills: {icon: JSX.Element, padding: string}[] = [
+      {"icon": <Gopher/>, "padding": "p-4"},
+      {"icon": <Typescript/>, "padding": "p-5"},
+      {"icon": <Python/>, "padding": "p-4"},
+      {"icon": <Kotlin/>, "padding": "p-5"},
+      {"icon": <Java/>, "padding": "p-4"},
+      {"icon": <PostgreSQL/>, "padding": "p-5"},
+      {"icon": <HTML/>, "padding": "p-5"},
+      {"icon": <Jenkins/>, "padding": "p-5"},
+    ]
     return (
         <div className={"antialiased relative bg-theme-secondary-light dark:bg-theme-secondary-dark"} >
           <PageLoad siteReady={this.state.siteReady} />
@@ -96,7 +108,7 @@ export default class App extends React.Component<any, AppState> {
             </section>
             {/*Using div as applying filter to the main tag will cause position:fixed element to be relative to the main tag (why???)*/}
             {/*See https://developer.mozilla.org/en-US/docs/Web/CSS/position#fixed*/}
-            <div className={`w-screen h-screen fixed top-0 left-full z-30 ${this.state.menuActive ? '-translate-x-full' : ''}`} style={{background: "rgba(255, 255, 255, 0", backdropFilter: "blur(4px)"}}/>
+            <div id={"menu-blur-layer"} className={`${this.state.menuActive ? '-translate-x-full' : ''}`}/>
             <section id="about-me">
               {/*TODO! fix w-screen overlapping with scrollbar, causing it to overflow*/}
               <div id={"section-curve-start"}>
@@ -111,7 +123,7 @@ export default class App extends React.Component<any, AppState> {
               </div>
               <div id={"about-me-content"} className={"content"}>
                 <h2>About me</h2>
-                <div className={"grid md:grid-cols-2 gap-y-10 gap-x-4 overflow-x-visible"}>
+                <div id={"about-me-grid"}>
                   <div className={"row-start-1 md:col-start-1"}>
                     <div className={"multiple-p"}>
                       <p>I am passionate about creating software that improves and simplifies lives of those around me. My interest in software development started back in 2019 when I stumbled upon a youtube tutorial on building an android application.</p>
@@ -129,31 +141,8 @@ export default class App extends React.Component<any, AppState> {
                   </div>
                   <div className="row-start-3 md:row-start-2 md:col-span-full">
                     <p>Here are a few technologies I've been working with recently:</p>
-                    <div className={"flex flex-wrap justify-evenly gap-x-2 gap-y-2 mt-8"}>
-                      <div className={"relative rounded-full bg-skills-icon transition-all hover:scale-110 h-20 w-20"}>
-                        <Gopher className={"p-4 absolute left-0 top-0 w-full h-full"}/>
-                      </div>
-                      <div className={"relative rounded-full bg-skills-icon transition-all hover:scale-110 h-20 w-20"}>
-                        <Typescript className={"p-5 absolute left-0 top-0 w-full h-full"}/>
-                      </div>
-                      <div className={"relative rounded-full bg-skills-icon transition-all hover:scale-110 h-20 w-20"}>
-                        <Python className={"p-4 absolute left-0 top-0 w-full h-full"}/>
-                      </div>
-                      <div className={"relative rounded-full bg-skills-icon transition-all hover:scale-110 h-20 w-20"}>
-                        <Kotlin className={"p-5 absolute left-0 top-0 w-full h-full"}/>
-                      </div>
-                      <div className={"relative rounded-full bg-skills-icon transition-all hover:scale-110 h-20 w-20"}>
-                        <Java className={"p-4 absolute left-0 top-0 w-full h-full"}/>
-                      </div>
-                      <div className={"relative rounded-full bg-skills-icon transition-all hover:scale-110 h-20 w-20"}>
-                        <PostgreSQL className={"p-5 absolute left-0 top-0 w-full h-full"}/>
-                      </div>
-                      <div className={"relative rounded-full bg-skills-icon transition-all hover:scale-110 h-20 w-20"}>
-                        <HTML className={"p-5 absolute left-0 top-0 w-full h-full"}/>
-                      </div>
-                      <div className={"relative rounded-full bg-skills-icon transition-all hover:scale-110 h-20 w-20"}>
-                        <Jenkins className={"p-4 absolute left-0 top-0 w-full h-full"}/>
-                      </div>
+                    <div className={"skills-flex-container"}>
+                      {skills.map(v => <Skill iconClassName={v.padding} icon={v.icon} /> )}
                     </div>
                   </div>
                 </div>

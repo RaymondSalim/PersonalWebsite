@@ -118,6 +118,10 @@ ul::after {
     content: '';
 }
 
+#menu-blur-layer {
+    @apply w-screen h-screen fixed top-0 left-full z-30 backdrop-blur-sm bg-white bg-opacity-0;
+}
+
 section {
     @apply dark:bg-theme-secondary-dark;
 }
@@ -171,8 +175,12 @@ section:nth-of-type(2) {
     line-height: clamp(1.4rem, 4vw, 2.65rem);
 }
 
-.bg-skills-icon {
-    background: radial-gradient(circle, rgba(255,255,255,1) 65%, rgba(0,173,181,1) 25%, rgba(0,173,181,1) 100%);
+#about-me-grid {
+    @apply grid md:grid-cols-2 gap-y-10 gap-x-4 overflow-x-visible;
+}
+
+.skills-flex-container {
+    @apply flex flex-wrap justify-evenly gap-x-2 gap-y-2 mt-8;
 }
 
 @layer utilities {
@@ -217,5 +225,9 @@ section:nth-of-type(2) {
 
     .min-h-1\/3vh {
         min-height: max(33.3vh, 300px);
+    }
+
+    .bg-skills-icon {
+        background: radial-gradient(circle, rgba(255,255,255,1) 65%, rgba(0,173,181,1) 25%, rgba(0,173,181,1) 100%);
     }
 }
