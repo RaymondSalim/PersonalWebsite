@@ -92,7 +92,7 @@ export default class App extends React.Component<any, AppState> {
       {"icon": <Java/>, "padding": "p-4"},
       {"icon": <PostgreSQL/>, "padding": "p-5"},
       {"icon": <HTML/>, "padding": "p-5"},
-      {"icon": <Jenkins/>, "padding": "p-5"},
+      {"icon": <Jenkins/>, "padding": "p-4"},
     ]
     return (
         <div className={"antialiased relative bg-theme-secondary-light dark:bg-theme-secondary-dark"} >
@@ -127,11 +127,11 @@ export default class App extends React.Component<any, AppState> {
                   <div className={"row-start-1 md:col-start-1"}>
                     <div className={"multiple-p"}>
                       <p>I am passionate about creating software that improves and simplifies lives of those around me. My interest in software development started back in 2019 when I stumbled upon a youtube tutorial on building an android application.</p>
-                      <p className={"after:content-none"}>Fast forward to today, I have developed software for clients ranging from individuals to large enterprise corporations such as Tokopedia, Kalbe Farma, and Mandiri</p>
+                      <p className={"after:content-none md:after:p-after"}>Fast forward to today, I have developed software for clients ranging from individuals to large enterprise corporations such as Tokopedia, Kalbe Farma, and Mandiri.</p>
                     </div>
                   </div>
                   <div className={"-mt-10 md:mt-0 row-start-2 md:row-start-1 md:col-start-2"}>
-                    <p className={"before:content-none"}>When I am not coding, you can find me doing any of the following:</p>
+                    <p className={"before:content-none md:before:p-before"}>When I am not coding, you can find me doing any of the following:</p>
                     <ul className={"list-disc list-inside mt-8 ml-2 marker:text-theme-primary"}>
                       <li>Badminton</li>
                       <li>Ultimate Frisbee</li>
