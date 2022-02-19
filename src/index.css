@@ -2,11 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    scroll-behavior: smooth;
+}
+
 :root {
     --header-height: 6rem;
     --header-height-scroll: 4rem;
     --body-height: calc(100vh - var(--header-height));
-    --blue: #00ADB5;
     --header-dark:  rgb(6, 8, 12, var(--tw-bg-opacity));
 }
 
@@ -20,8 +23,16 @@ body {
 }
 
 /* Headings & texts */
-h1, h2, h3, h4, h5, h6, a, span, p {
+h1, h2, h3, h4, h5, h6, a, h1 span {
     @apply dark:text-white relative;
+}
+
+span, p, li {
+    @apply dark:text-gray-400 text-gray-500 relative;
+}
+
+ul {
+    @apply relative;
 }
 
 h1 {
@@ -32,13 +43,21 @@ h2 {
     @apply text-3xl font-semibold dark:text-gray-400 my-4;
 }
 
+h3 {
+    @apply text-xl font-semibold dark:text-gray-400 my-3;
+}
+
 h1::before,
 h1::after,
 h2::before,
 h2::after,
+h3::before,
+h3::after,
 p::after,
-p::before {
-    @apply text-gray-400 dark:text-gray-600 text-base absolute -left-4 font-medium sm:text-lg lg:text-xl ;
+p::before,
+ul::before,
+ul::after {
+    @apply text-gray-400 dark:text-gray-600 text-base absolute -left-4 font-medium;
     font-family: 'Caveat', cursive;
 }
 
@@ -62,6 +81,16 @@ h2::after {
     content: "</h2>";
 }
 
+h3::before {
+    @apply -mt-5;
+    content: "<h2>";
+}
+
+h3::after {
+    @apply -bottom-5;
+    content: "</h2>";
+}
+
 p::before {
     @apply -mt-5;
     content: "<p>";
@@ -72,8 +101,50 @@ p::after {
     content: "</p>";
 }
 
-#section-home {
-    @apply h-screen relative;
+ul::before {
+    @apply -mt-5;
+    content: "<ul>";
+}
+
+ul::after {
+    @apply -bottom-5;
+    content: "</ul>";
+}
+
+.multiple-p > p:first-of-type::after,
+.multiple-p > p:not(:first-of-type):not(:last-of-type)::after,
+.multiple-p > p:not(:first-of-type):not(:last-of-type)::before,
+.multiple-p > p:last-of-type::before {
+    content: '';
+}
+
+section {
+    @apply dark:bg-theme-secondary-dark;
+}
+
+section:not(:first-of-type) {
+    @apply dark:bg-theme-loader-dark;
+}
+
+section:nth-of-type(2) {
+    @apply mt-[100vh] pt-0;
+}
+
+#section-curve-start {
+    @apply w-screen transform translate-y-[-99%] text-theme-loader-dark;
+}
+
+#section-curve-end {
+    @apply w-screen transform translate-y-[98%] text-theme-loader-dark bg-transparent mt-[-12vw] mb-24 md:mb-36;
+}
+
+#home {
+    @apply h-screen fixed top-0 right-0 left-0 bg-theme-secondary-dark;
+    z-index: -9000;
+}
+
+.content {
+    @apply mx-8 sm:mx-10 md:mx-14 lg:mx-20 xl:mx-24;
 }
 
 #home-content {
@@ -91,7 +162,17 @@ p::after {
 }
 
 #home-content p {
-    @apply my-10 text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold dark:text-gray-400 text-gray-500;
+    @apply my-10 text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold;
+}
+
+#about-me-content > h2 {
+    @apply text-white my-5 mb-8;
+    font-size: clamp(1.4rem, 4vw, 2.65rem);
+    line-height: clamp(1.4rem, 4vw, 2.65rem);
+}
+
+.bg-skills-icon {
+    background: radial-gradient(circle, rgba(255,255,255,1) 65%, rgba(0,173,181,1) 25%, rgba(0,173,181,1) 100%);
 }
 
 @layer utilities {
@@ -136,9 +217,5 @@ p::after {
 
     .min-h-1\/3vh {
         min-height: max(33.3vh, 300px);
-    }
-
-    .page_section_anchor {
-        margin-top: calc( calc( 2rem + var(--header-height) ) * -1 );
     }
 }
