@@ -13,7 +13,10 @@ module.exports = {
           light: "#FAFAFA",
           dark: "#222831"
         },
-        'theme-primary': "#00ADB5",
+        'theme-primary': {
+          light: "#00ADB5",
+          lighter: "#00DFE7"
+        },
         'theme-secondary': {
           light: "#EEEEEE",
           dark: '#2D323A'

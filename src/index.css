@@ -15,7 +15,7 @@ html {
 
 a:focus,
 button:focus {
-    @apply ring-2 ring-theme-primary outline-none;
+    @apply ring-2 ring-theme-primary-light outline-none;
 }
 
 body {
@@ -161,7 +161,7 @@ section:nth-of-type(2) {
 }
 
 #home-content h1 > span {
-    @apply hover:text-theme-primary transition-colors duration-200;
+    @apply hover:text-theme-primary-light transition-colors duration-200;
 }
 
 #home-content p {

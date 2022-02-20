@@ -16,5 +16,5 @@
 }
 
 #navbar-desktop li a:hover span {
-    @apply text-theme-primary dark:text-theme-primary;
+    @apply text-theme-primary-light dark:text-theme-primary-light;
 }
