@@ -31,6 +31,18 @@ span, p, li {
     @apply dark:text-gray-400 text-gray-500 relative 2xl:text-xl;
 }
 
+p > a {
+    @apply text-theme-primary-light dark:text-theme-primary-lighter relative no-underline focus:ring-0;
+}
+
+p > a::after {
+    @apply inline-block content-[""] absolute left-0 bottom-0 h-[1px] w-0 bg-theme-primary-lighter transition-all ease-in-out;
+}
+p > a:focus::after,
+p > a:hover::after {
+    width: 100%;
+}
+
 ul {
     @apply relative;
 }

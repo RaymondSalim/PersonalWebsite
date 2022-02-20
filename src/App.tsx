@@ -118,7 +118,7 @@ export default class App extends React.Component<any, AppState> {
                     xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                      d="M 0,132.29692 84.485809,105.64055 C 190.92453,72.057753 239.56437,71.31983 360,90 486.54269,109.20909 660,43.000003 780,53.300003 c 120,10.7 240,42.7 360,37.4 C 1260,85.000003 1320,50 1380,21.3 L 1440,0 V 145.68176 H 1380 1080 720 360 60 0 Z"                />
+                      d="M 0,132.29692 84.485809,105.64055 C 190.92453,72.057753 239.56437,71.31983 360,90 486.54269,109.20909 660,43.000003 780,53.300003 c 120,10.7 240,42.7 360,37.4 C 1260,85.000003 1320,50 1380,21.3 L 1440,0 V 145.68176 H 1380 1080 720 360 60 0 Z" />
                 </svg>
               </div>
               <div id={"about-me-content"} className={"content"}>
@@ -126,14 +126,13 @@ export default class App extends React.Component<any, AppState> {
                 <div id={"about-me-grid"}>
                   <div className={"row-start-1 md:col-start-1"}>
                     <div className={"multiple-p"}>
-                      <p>I am passionate about creating software that improves and simplifies lives of those around me. My interest in software development started back in 2019 when I stumbled upon a youtube tutorial on building an android application.</p>
-                      {/*TODO! Replace company name with links*/}
-                      <p className={"after:content-none md:after:p-after"}>Fast forward to today, I have developed software for clients ranging from individuals to large enterprise corporations such as Tokopedia, Kalbe Farma, and Mandiri.</p>
+                      <p>I am passionate about creating software that improves and simplifies the lives of those around me. My interest in software development started back in 2019 when I stumbled upon a youtube tutorial on building an android application.</p>
+                      <p className={"after:content-none md:after:p-after"}>Fast forward to today, I have developed software for clients ranging from individuals to large enterprise corporations such as <a href="https://www.tokopedia.com/about/" target="_blank" rel="noopener noreferrer">Tokopedia</a>, <a href="https://www.kalbe.co.id/" target="_blank" rel="noopener noreferrer">Kalbe Farma</a>, and <a href="https://mandiri-investasi.co.id/en/" target="_blank" rel="noopener noreferrer">Mandiri</a>.</p>
                     </div>
                   </div>
                   <div className={"-mt-10 md:mt-0 row-start-2 md:row-start-1 md:col-start-2"}>
                     <p className={"before:content-none md:before:p-before"}>When I am not coding, you can find me doing any of the following:</p>
-                    <ul className={"list-disc list-inside mt-8 ml-2 marker:text-theme-primary"}>
+                    <ul className={"list-disc list-inside mt-8 ml-2 marker:text-theme-primary-light"}>
                       <li>Badminton</li>
                       <li>Ultimate Frisbee</li>
                       <li>Watching/playing video games</li>
@@ -165,9 +164,9 @@ export default class App extends React.Component<any, AppState> {
             <footer>
               <div>
                 <span>Icons by </span>
-                <a href="https://colebemis.com/" target={"_blank"}>Cole Bemis</a>
+                <a href="https://colebemis.com/" target={"_blank"} rel="noopener noreferrer">Cole Bemis</a>
                 <span>, </span>
-                <a href=" https://icons.grommet.io/" target={"_blank"}>grommet-icons</a>
+                <a href=" https://icons.grommet.io/" target={"_blank"} rel="noopener noreferrer">grommet-icons</a>
               </div>
             </footer>
           </main>
