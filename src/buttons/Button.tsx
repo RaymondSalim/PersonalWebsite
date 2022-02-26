@@ -12,6 +12,7 @@ export class Button extends React.Component<ButtonProps> {
                 href={this.props.href}
                 onClick={this.props.onclick}
                 className={`btn ${this.props.className}`}
+                onFocus={this.props.onfocus}
             >{this.props.text}</a>
         );
     }
@@ -19,6 +20,5 @@ export class Button extends React.Component<ButtonProps> {
 
 export interface ButtonProps extends BaseProps {
     href?:      string
-    onclick?:   () => void
     text:       string
 }

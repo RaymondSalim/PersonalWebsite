@@ -20,7 +20,7 @@
 .burger > div,
 .burger::before,
 .burger::after {
-    @apply bg-theme-primary origin-center;
+    @apply bg-theme-primary-light origin-center;
     height: var(--burger-height);
     border-radius: var(--burger-border-rad);
     animation: var(--animation-time) forwards;
