@@ -12,7 +12,7 @@
 }
 
 #mobileMenu li a svg {
-    @apply dark:text-white transition-colors duration-200;
+    @apply dark:text-white transition-colors duration-200 flex-shrink-0;
 }
 
 #mobileMenu li a:hover span,
