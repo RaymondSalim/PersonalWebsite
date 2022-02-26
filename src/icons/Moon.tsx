@@ -1,4 +1,4 @@
-import {IconProps} from "../common/interface/IconProps";
+import { IconProps } from '../common/interface/IconProps';
 
 export default function Moon(props?: IconProps) {
   return (
@@ -9,8 +9,8 @@ export default function Moon(props?: IconProps) {
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="2"
-      height={props?.height ?? "24"}
-      width={props?.width ?? "24"}
+      height={props?.height ?? '24'}
+      width={props?.width ?? '24'}
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >

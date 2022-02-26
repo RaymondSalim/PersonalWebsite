@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export class User extends React.Component {
   render() {
@@ -31,4 +31,3 @@ export class User extends React.Component {
     );
   }
 }
-

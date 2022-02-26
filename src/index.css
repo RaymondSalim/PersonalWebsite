@@ -10,7 +10,7 @@ html {
     --header-height: 6rem;
     --header-height-scroll: 4rem;
     --body-height: calc(100vh - var(--header-height));
-    --header-dark:  rgb(6, 8, 12, var(--tw-bg-opacity));
+    --header-dark: rgb(6, 8, 12, var(--tw-bg-opacity));
 }
 
 a:focus,
@@ -38,6 +38,7 @@ p > a {
 p > a::after {
     @apply inline-block content-[""] absolute left-0 bottom-0 h-[1px] w-0 bg-theme-primary-lighter transition-all ease-in-out;
 }
+
 p > a:focus::after,
 p > a:hover::after {
     width: 100%;
@@ -243,6 +244,6 @@ section:nth-of-type(2) {
     }
 
     .bg-skills-icon {
-        background: radial-gradient(circle, rgba(255,255,255,1) 65%, rgba(0,173,181,1) 25%, rgba(0,173,181,1) 100%);
+        background: radial-gradient(circle, rgba(255, 255, 255, 1) 65%, rgba(0, 173, 181, 1) 25%, rgba(0, 173, 181, 1) 100%);
     }
 }
