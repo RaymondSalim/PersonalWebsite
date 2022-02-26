@@ -7,7 +7,7 @@ STG="staging"
 
 allowedEnv=("${STG}" "${PROD}")
 allowedYn=("y" "n")
-
+allowedTrueFalse=("true" "false")
 # Variables for console color
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -21,6 +21,8 @@ Options:
   -e, --environment <env>     The destination environment. One of [staging, production]
   -p, --password <pass>       Password to decrypt the deployed page (Required if <env> is staging)
   -y, --no-prompt             Do not prompt before deployment
+  -t, --token                 Git Token for deployment (required if deploying to a different branch)
+  -d, --debug                 Run script with higher verbosity
   -h, --__help                Print this message
 "
 
@@ -92,6 +94,23 @@ while :; do
       print_error "-t/--token requires a value"
       exit 1
       ;;
+    -d|--debug)
+          if [[ "$2" ]]; then
+            DEBUG=${2,,}
+            shift
+          else
+              print_error "-d/--debug requires a value"
+              exit 1
+          fi
+          ;;
+    --debug=?*)
+      DEBUG=${1#*=}
+      DEBUG=${DEBUG,,}
+      ;;
+    --debug=)
+      print_error "-d/--debug requires a value"
+      exit 1
+      ;;
     -y|--no-prompt)
       NOPROMPT=1
       ;;
@@ -106,18 +125,20 @@ while :; do
   shift
 done
 
-# Check if -e flag exists
-if [ -z "$ENV" ]; then
-  print_error "-e flag required"
-  exit 1
-fi
-
 # check -e flag value
 # shellcheck disable=SC2076
 if [[ ! " ${allowedEnv[*],,} " =~ " ${ENV} " ]]; then
   print_error "Invalid value for -e flag"
   exit 1
 fi
+
+# check -d flag value
+# shellcheck disable=SC2076
+if [[ ! " ${allowedTrueFalse[*],,} " =~ " ${DEBUG} " ]]; then
+  print_error "Invalid value for -d flag"
+  exit 1
+fi
+
 
 if [ "${ENV}" = "${STG}" ]; then
   # Check if -p flag exists, else get from input
@@ -131,6 +152,14 @@ elif [ "${ENV}" = "${PROD}" ]; then
   REPO='PersonalWebsite'
 fi
 
+if [[ $DEBUG = true ]]; then
+  print_info "Domain: ${DOMAIN}"
+  print_info "Repository: ${REPO}"
+  npmArgs="--loglevel verbose"
+else
+  npmArgs="--loglevel warn"
+fi
+
 if [[ -n $TOKEN ]]; then
   REPO_URL="https://git:${TOKEN}@github.com/RaymondSalim/${REPO}.git"
 else
@@ -138,14 +167,14 @@ else
 fi
 
 print_info "Installing dependencies"
-npm install --quiet > /dev/null
+npm install "$npmArgs" > /dev/null
 
 print_info "Print current dir"
 pwd
 ls -lah
 
 print_info "Building files"
-CI=false npm run build > /dev/null # setting CI=false to prevent craco interpreting warnings as errors
+CI=false npm run "$npmArgs" build # setting CI=false to prevent craco interpreting warnings as errors
 
 print_info "Generating CNAME"
 echo "${DOMAIN}" > ./build/CNAME
@@ -153,7 +182,7 @@ echo "${DOMAIN}" > ./build/CNAME
 # Encrypt file if staging env
 if [ "${ENV}" = "${STG}" ]; then
   print_info "Encrypting HTML page"
-  npx staticrypt './build/index.html' "$CRYPTPASS" -o './build/index.html'
+  npx "$npmArgs" staticrypt './build/index.html' "$CRYPTPASS" -o './build/index.html'
 fi
 
 print_success "\nFile generated successfully"

@@ -31,7 +31,7 @@ jobs:
         with:
           node-version: '16'
       - run: echo 'Deploying to staging'
-      - run: npm run deploy-stg -- -p ${{ secrets.STG_ENCRYPT_KEY }} -t ${{ secrets.PAT_TOKEN }}
+      - run: npm run deploy-stg -- -p ${{ secrets.STG_ENCRYPT_KEY }} -t ${{ secrets.PAT_TOKEN }} -d ${{ secrets.ACTIONS_RUNNER_DEBUG }}
 
   deploy-prod:
     runs-on: ubuntu-latest
@@ -47,4 +47,4 @@ jobs:
         with:
           node-version: '16'
       - run: echo 'Deploying to production'
-      - run: npm run deploy-prod -- -t ${{ secrets.PAT_TOKEN }}
+      - run: npm run deploy-prod -- -t ${{ secrets.PAT_TOKEN }} -d ${{ secrets.ACTIONS_RUNNER_DEBUG }}
