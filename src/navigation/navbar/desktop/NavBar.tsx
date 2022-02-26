@@ -17,12 +17,12 @@ export class NavBar extends React.Component<NavBarDesktopProps>{
                 <ul className={"flex space-x-8 items-center h-full"}>
                     <li>
                         <a
-                            href="#about_me">
+                            href="#about-me">
                             <span>About Me</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#skills_experiences">
+                        <a href="#skills-experiences">
                             <span>Skills & Experience</span>
                         </a>
                     </li>

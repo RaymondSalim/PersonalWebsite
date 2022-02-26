@@ -11,8 +11,8 @@ export class DarkModeToggle extends React.Component<DarkModeToggleProps> {
     if (this.props.singleIconMode) {
       return (
           <div className={"relative"} onClick={this.props.onChange}>
-            <Moon width={this.props.singleIconDim} height={this.props.singleIconDim} className={`${ this.props.isDarkModeEnabled ? 'opacity-100' : '-translate-y-full opacity-0'} absolute transition-all duration-300 hover:text-theme-primary dark:text-white dark:hover:text-theme-primary select-none`} />
-            <Sun width={this.props.singleIconDim} height={this.props.singleIconDim} className={`${ this.props.isDarkModeEnabled ? 'translate-y-full opacity-0' : 'opacity-100'} absolute transition-all duration-300 hover:text-theme-primary dark:text-white dark:hover:text-theme-primary select-none`} />
+            <Moon width={this.props.singleIconDim} height={this.props.singleIconDim} className={`${ this.props.isDarkModeEnabled ? 'opacity-100' : '-translate-y-full opacity-0'} absolute transition-all duration-300 hover:text-theme-primary-light dark:text-white dark:hover:text-theme-primary-light select-none`} />
+            <Sun width={this.props.singleIconDim} height={this.props.singleIconDim} className={`${ this.props.isDarkModeEnabled ? 'translate-y-full opacity-0' : 'opacity-100'} absolute transition-all duration-300 hover:text-theme-primary-light dark:text-white dark:hover:text-theme-primary-light select-none`} />
           </div>
       )
     }
@@ -20,8 +20,8 @@ export class DarkModeToggle extends React.Component<DarkModeToggleProps> {
     return (
       <Switch
         isChecked={this.props.isDarkModeEnabled}
-        leftIcon={(<Sun className={`mr-5 ${ !this.props.isDarkModeEnabled ? 'text-theme-primary' : 'text-white'}`} />)}
-        rightIcon={(<Moon className={`ml-5 ${ this.props.isDarkModeEnabled ? 'text-theme-primary' : 'text-black'}`} />)}
+        leftIcon={(<Sun className={`mr-5 ${ !this.props.isDarkModeEnabled ? 'text-theme-primary-light' : 'text-white'}`} />)}
+        rightIcon={(<Moon className={`ml-5 ${ this.props.isDarkModeEnabled ? 'text-theme-primary-light' : 'text-black'}`} />)}
         onChange={this.props.onChange}
         dimension={{}}
       />

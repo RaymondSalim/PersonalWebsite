@@ -3,6 +3,11 @@
     bg-theme-navbar-light dark:bg-theme-navbar-dark transform transition-all flex flex-col;
 }
 
+#mobileMenu ul::before,
+#mobileMenu ul::after {
+    @apply content-none;
+}
+
 #mobileMenu li {
     @apply p-4 flex justify-start items-center;
 }
@@ -17,7 +22,7 @@
 
 #mobileMenu li a:hover span,
 #mobileMenu li a:hover svg {
-    @apply text-theme-primary dark:text-theme-primary;
+    @apply text-theme-primary-light dark:text-theme-primary-light;
 }
 
 #mobileMenu li a span{

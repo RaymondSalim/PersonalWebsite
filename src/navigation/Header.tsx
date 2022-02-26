@@ -60,7 +60,7 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
           ${ ( this.state.forceNotHidden ?? !this.state.hidden) ? '' : '-translate-y-full' }
         `}
       >
-        <Logo className={"text-theme-primary p-1 h-[calc(var(--header-height-scroll)-1rem)] w-[calc(var(--header-height-scroll)-1rem)] my-auto ml-3 z-40"}/>
+        <Logo className={"text-theme-primary-light p-1 h-[calc(var(--header-height-scroll)-1rem)] w-[calc(var(--header-height-scroll)-1rem)] my-auto ml-3 z-40"}/>
         <nav
           className={"h-[fit-content] my-auto"}
           onFocus={ () => {this.forceHeaderState(true)} }
