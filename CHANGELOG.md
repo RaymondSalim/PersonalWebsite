@@ -1,6 +1,11 @@
 # Changelog
 <hr>
 
+### • v0.5.7 (2021-02-26)
+```markdown
+- Updated deploy script. New debug mode on deploy script
+```
+
 ### • v0.5.6 (2021-02-01)
 ```markdown
 - Fix buggy hamburger icon animation
