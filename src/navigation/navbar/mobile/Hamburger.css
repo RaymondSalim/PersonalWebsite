@@ -5,9 +5,9 @@
     --burger-width: calc(var(--burger-height) * 16);
     --burger-width-before: calc(var(--burger-width) * 0.8);
     --burger-width-after: calc(var(--burger-width) * 0.6);
-    --burger-top-before: calc( (var(--burger-height) * 3) + var(--burger-extra-y-gap) );
-    --burger-top-after: calc( (var(--burger-height) * 6) + (2 * var(--burger-extra-y-gap)) );
-    --burger-container-height: calc( (7 * var(--burger-height)) + (3 * var(--burger-extra-y-gap)) );
+    --burger-top-before: calc((var(--burger-height) * 3) + var(--burger-extra-y-gap));
+    --burger-top-after: calc((var(--burger-height) * 6) + (2 * var(--burger-extra-y-gap)));
+    --burger-container-height: calc((7 * var(--burger-height)) + (3 * var(--burger-extra-y-gap)));
     --animation-time: 600ms;
 }
 
@@ -136,14 +136,16 @@
         width: var(--burger-width);
     }
     100% {
-        @apply /*translate-x-full */opacity-0;
+        @apply /*translate-x-full */
+        opacity-0;
         width: var(--burger-width);
     }
 }
 
 @keyframes b-before-close {
     0% {
-        @apply /*translate-x-full */opacity-0;
+        @apply /*translate-x-full */
+        opacity-0;
         width: var(--burger-width);
     }
 
@@ -177,7 +179,8 @@
     100% {
         transform: rotate(-45deg);
         top: var(--burger-top-before);
-    }}
+    }
+}
 
 @keyframes b-close {
     0% {

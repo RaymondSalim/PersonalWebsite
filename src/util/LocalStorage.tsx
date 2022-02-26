@@ -3,6 +3,6 @@ export function setItemInLocalStorage(key: string, item: any) {
 }
 
 export function getItemFromLocalStorage(key: string): any {
-  let item = localStorage.getItem(key)
+  const item = localStorage.getItem(key);
   return JSON.parse(item as string);
 }
