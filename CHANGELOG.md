@@ -1,6 +1,16 @@
 # Changelog
 <hr>
 
+### • v0.5.7 (2021-02-26)
+```markdown
+- Updated README.md
+- Added setup script for git hooks
+- Added about me section
+- Fix menu icon shrinking
+- Fix dark mode switch skipped when navigating using tab
+- Updated navigation bar background colour
+```
+
 ### • v0.5.6 (2021-02-01)
 ```markdown
 - Fix buggy hamburger icon animation
