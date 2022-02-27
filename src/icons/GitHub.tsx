@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export class GitHub extends React.Component {
   render() {
@@ -19,4 +19,3 @@ export class GitHub extends React.Component {
     );
   }
 }
-

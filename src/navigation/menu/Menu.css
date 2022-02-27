@@ -3,6 +3,11 @@
     bg-theme-navbar-light dark:bg-theme-navbar-dark transform transition-all flex flex-col;
 }
 
+#mobileMenu ul::before,
+#mobileMenu ul::after {
+    @apply content-none;
+}
+
 #mobileMenu li {
     @apply p-4 flex justify-start items-center;
 }
@@ -12,15 +17,15 @@
 }
 
 #mobileMenu li a svg {
-    @apply dark:text-white transition-colors duration-200;
+    @apply dark:text-white transition-colors duration-200 flex-shrink-0;
 }
 
 #mobileMenu li a:hover span,
 #mobileMenu li a:hover svg {
-    @apply text-theme-primary dark:text-theme-primary;
+    @apply text-theme-primary-light dark:text-theme-primary-light;
 }
 
-#mobileMenu li a span{
+#mobileMenu li a span {
     @apply text-xl ml-8 p-4 flex justify-center align-middle dark:text-white transition-colors duration-200;
     font-family: 'Montserrat', sans-serif;
 }

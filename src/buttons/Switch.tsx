@@ -1,29 +1,29 @@
-import React from "react";
-import './Switch.css'
-import BaseProps from "../common/interface/BaseProps";
+import React from 'react';
+import './Switch.css';
+import BaseProps from '../common/interface/BaseProps';
 
 export class Switch extends React.Component<SwitchProps, SwitchState> {
   constructor(props: any) {
     super(props);
 
     this.state = {
-      isChecked: this.props.isChecked
-    }
+      isChecked: this.props.isChecked,
+    };
 
     this.toggleState = this.toggleState.bind(this);
   }
 
   toggleState() {
     this.setState({
-      isChecked: !this.state.isChecked
-    })
+      isChecked: !this.state.isChecked,
+    });
   }
 
   render() {
     return (
       <label className="toggle-wrapper" htmlFor="toggle">
         {this.props.leftIcon}
-        <div className={`toggle ${this.state.isChecked ? "enabled" : "disabled"}`}>
+        <div className={`toggle ${this.state.isChecked ? 'enabled' : 'disabled'}`}>
           <input
             id="toggle"
             name="toggle"
@@ -45,6 +45,7 @@ export interface SwitchProps extends BaseProps {
   isChecked: boolean // Initial switch state
   onChange: (e: React.ChangeEvent) => void
 }
+
 export interface SwitchState {
   isChecked: boolean
 }
