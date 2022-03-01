@@ -121,7 +121,7 @@ export default class App extends React.Component<any, AppState> {
           </section>
           {/* Using div as applying filter to the main tag will cause position:fixed element to be relative to the main tag (why???) */}
           {/* See https://developer.mozilla.org/en-US/docs/Web/CSS/position#fixed */}
-          <div id="menu-blur-layer" className={`${this.state.menuActive ? '-translate-x-full' : ''}`}/>
+          <div id="menu-blur-layer" className={`${this.state.menuActive ? '-translate-x-full' : ''}`} onClick={() => { this.toggleMenu(); }}/>
           <section id="about-me">
             {/* TODO! fix w-screen overlapping with scrollbar, causing it to overflow */}
             <div id="section-curve-start">
