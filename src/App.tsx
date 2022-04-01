@@ -109,7 +109,7 @@ export default class App extends React.Component<any, AppState> {
               <h1>
                 Hi, my
                 <br/>
-                name is
+                name is&nbsp;
                 <span><strong>Raymond</strong></span>
                 .
               </h1>
@@ -145,11 +145,11 @@ export default class App extends React.Component<any, AppState> {
                       tutorial on building an android application.</p>
                     <p className="after:content-none md:after:p-after">
                       Fast forward to today, I have developed software for clients ranging from individuals to large
-                      enterprise corporations such as
+                      enterprise corporations such as&nbsp;
                       <a href="https://www.tokopedia.com/about/" target="_blank" rel="noopener noreferrer">Tokopedia</a>
-                      ,
+                      ,&nbsp;
                       <a href="https://www.kalbe.co.id/" target="_blank" rel="noopener noreferrer">Kalbe Farma</a>
-                      , and
+                      , and&nbsp;
                       <a href="https://mandiri-investasi.co.id/en/" target="_blank"
                          rel="noopener noreferrer">Mandiri</a>
                       .
