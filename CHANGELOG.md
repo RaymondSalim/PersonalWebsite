@@ -1,6 +1,14 @@
 # Changelog
 <hr>
 
+### • v0.5.9 (2021-04-01)
+```markdown
+- New util function `wait()`
+- Fix page load animation
+- Fix anchor items missing whitespace before/after
+- Fix clicking outside the menu does not close the menu
+```
+
 ### • v0.5.8 (2021-02-26)
 ```markdown
 - Updated README.md

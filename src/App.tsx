@@ -32,17 +32,22 @@ export default class App extends React.Component<any, AppState> {
     };
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     window.onload = () => {
-      this.setPageReady();
+      this.setState({
+        siteReady: true,
+      });
     };
-
+    this.toggleBodyOverflow(true); // Prevent scrolling when page load animation is active
     this.initDarkMode();
-  }
+  };
+
+  toggleBodyOverflow = (force?: boolean) => {
+    document.body.classList.toggle('overflow-y-hidden', force);
+  };
 
   toggleMenu = () => {
-    document.body.classList.toggle('overflow-y-hidden', !this.state.menuActive); // Prevent scrolling when menu is open
-
+    this.toggleBodyOverflow(!this.state.menuActive); // Prevent scrolling when menu is open
     this.setState({
       menuActive: !this.state.menuActive,
     });
@@ -60,12 +65,6 @@ export default class App extends React.Component<any, AppState> {
     });
 
     document.body.classList.toggle('dark', isDark);
-  };
-
-  setPageReady = () => {
-    this.setState({
-      siteReady: true,
-    });
   };
 
   // Checks localStorage for existing data, else check system preference
@@ -101,7 +100,7 @@ export default class App extends React.Component<any, AppState> {
     ];
     return (
       <div className="antialiased relative bg-theme-secondary-light dark:bg-theme-secondary-dark">
-        <PageLoad siteReady={this.state.siteReady}/>
+        <PageLoad togglePageOverflow={this.toggleBodyOverflow} siteReady={this.state.siteReady}/>
         <Header navBarMobileProps={navbarMobileProps}/>
         <main className="transition-all ease-in duration-150">
           <section id="home">
@@ -109,7 +108,7 @@ export default class App extends React.Component<any, AppState> {
               <h1>
                 Hi, my
                 <br/>
-                name is
+                name is&nbsp;
                 <span><strong>Raymond</strong></span>
                 .
               </h1>
@@ -121,7 +120,7 @@ export default class App extends React.Component<any, AppState> {
           </section>
           {/* Using div as applying filter to the main tag will cause position:fixed element to be relative to the main tag (why???) */}
           {/* See https://developer.mozilla.org/en-US/docs/Web/CSS/position#fixed */}
-          <div id="menu-blur-layer" className={`${this.state.menuActive ? '-translate-x-full' : ''}`}/>
+          <div id="menu-blur-layer" className={`${this.state.menuActive ? '-translate-x-full' : ''}`} onClick={() => { this.toggleMenu(); }}/>
           <section id="about-me">
             {/* TODO! fix w-screen overlapping with scrollbar, causing it to overflow */}
             <div id="section-curve-start">
@@ -145,11 +144,11 @@ export default class App extends React.Component<any, AppState> {
                       tutorial on building an android application.</p>
                     <p className="after:content-none md:after:p-after">
                       Fast forward to today, I have developed software for clients ranging from individuals to large
-                      enterprise corporations such as
+                      enterprise corporations such as&nbsp;
                       <a href="https://www.tokopedia.com/about/" target="_blank" rel="noopener noreferrer">Tokopedia</a>
-                      ,
+                      ,&nbsp;
                       <a href="https://www.kalbe.co.id/" target="_blank" rel="noopener noreferrer">Kalbe Farma</a>
-                      , and
+                      , and&nbsp;
                       <a href="https://mandiri-investasi.co.id/en/" target="_blank"
                          rel="noopener noreferrer">Mandiri</a>
                       .
