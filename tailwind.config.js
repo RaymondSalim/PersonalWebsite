@@ -1,10 +1,10 @@
 module.exports = {
-  mode: 'jit',
-  purge: ['./src/**/*.{js,jsx,ts,tsx,css}', './public/index.html'],
+  content: ['./src/**/*.{js,jsx,ts,tsx,css}', './public/index.html'],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
       colors: {
+        'current': 'currentColor',
         'theme-loader': {
           light: "#FAFAFA",
           dark: "#201f28"
@@ -25,11 +25,6 @@ module.exports = {
       screens: {
         '2xl': '1536px',
       },
-    },
-  },
-  variants: {
-    extend: {
-      opacity: ['dark'],
     },
   },
   plugins: [],

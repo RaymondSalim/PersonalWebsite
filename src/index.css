@@ -146,11 +146,11 @@ section:nth-of-type(2) {
 }
 
 #section-curve-start {
-    @apply w-screen transform translate-y-[-99%] text-theme-secondary-light dark:text-theme-loader-dark mb-[-5vw] mt-[7vw];
+    @apply w-screen translate-y-[-99%] text-theme-secondary-light dark:text-theme-loader-dark mb-[-5vw] mt-[7vw];
 }
 
 #section-curve-end {
-    @apply w-screen transform translate-y-[98%] text-theme-secondary-light dark:text-theme-loader-dark bg-transparent mt-[-12vw] mb-[15vw];
+    @apply w-screen translate-y-[98%] text-theme-secondary-light dark:text-theme-loader-dark bg-transparent mt-[-12vw] mb-[15vw];
 }
 
 #home {
