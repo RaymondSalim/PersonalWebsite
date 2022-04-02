@@ -1,5 +1,4 @@
 import React from 'react';
-import './Switch.css';
 import BaseProps from '../common/interface/BaseProps';
 
 export class Switch extends React.Component<SwitchProps, SwitchState> {
