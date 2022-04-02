@@ -1,5 +1,4 @@
 import React, { SyntheticEvent } from 'react';
-import './NavBar.css';
 import { DarkModeToggle } from '../../../util/darkmode/DarkModeToggle';
 import { convert } from '../../../util/dimensions';
 

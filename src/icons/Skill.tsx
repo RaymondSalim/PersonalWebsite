@@ -1,6 +1,5 @@
 import React from 'react';
 import BaseProps from '../common/interface/BaseProps';
-import './Skill.css';
 
 export class Skill extends React.Component<SkillProps> {
   render() {

@@ -1,3 +1,7 @@
+@import "buttons/buttons.css";
+@import "icons/icons.css";
+@import "navigation/navigation.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

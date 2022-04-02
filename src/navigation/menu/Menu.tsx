@@ -1,5 +1,4 @@
 import React, { SyntheticEvent } from 'react';
-import './Menu.css';
 import { User } from '../../icons/User';
 import { Work } from '../../icons/Work';
 import { Project } from '../../icons/Project';
