@@ -1,6 +1,5 @@
 import React from 'react';
 import BaseProps from '../common/interface/BaseProps';
-import './Button.css';
 
 export interface ButtonProps extends BaseProps {
   href?: string

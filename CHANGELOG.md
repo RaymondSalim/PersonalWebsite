@@ -1,6 +1,13 @@
 # Changelog
 <hr>
 
+### • v0.6.0 (2021-04-02)
+```markdown
+- [Breaking] Updated dependencies.
+- Added custom scrollbar
+```
+See [here](https://github.com/RaymondSalim/PersonalWebsite/pull/35) for complete list for dependency change.
+
 ### • v0.5.9 (2021-04-01)
 ```markdown
 - New util function `wait()`

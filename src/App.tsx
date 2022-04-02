@@ -38,16 +38,16 @@ export default class App extends React.Component<any, AppState> {
         siteReady: true,
       });
     };
-    this.toggleBodyOverflow(true); // Prevent scrolling when page load animation is active
+    this.toggleDocumentOverflow(true); // Prevent scrolling when page load animation is active
     this.initDarkMode();
   };
 
-  toggleBodyOverflow = (force?: boolean) => {
-    document.body.classList.toggle('overflow-y-hidden', force);
+  toggleDocumentOverflow = (force?: boolean) => {
+    document.documentElement.classList.toggle('overflow-hidden', force);
   };
 
   toggleMenu = () => {
-    this.toggleBodyOverflow(!this.state.menuActive); // Prevent scrolling when menu is open
+    this.toggleDocumentOverflow(!this.state.menuActive); // Prevent scrolling when menu is open
     this.setState({
       menuActive: !this.state.menuActive,
     });
@@ -100,7 +100,7 @@ export default class App extends React.Component<any, AppState> {
     ];
     return (
       <div className="antialiased relative bg-theme-secondary-light dark:bg-theme-secondary-dark">
-        <PageLoad togglePageOverflow={this.toggleBodyOverflow} siteReady={this.state.siteReady}/>
+        <PageLoad togglePageOverflow={this.toggleDocumentOverflow} siteReady={this.state.siteReady}/>
         <Header navBarMobileProps={navbarMobileProps}/>
         <main className="transition-all ease-in duration-150">
           <section id="home">

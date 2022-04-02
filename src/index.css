@@ -1,9 +1,53 @@
+@import "buttons/buttons.css";
+@import "icons/icons.css";
+@import "navigation/navigation.css";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Scrollbar */
+
+@supports selector(::-webkit-scrollbar) {
+    /* Width */
+    ::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        @apply bg-theme-primary-lighter;
+        border-radius: 1rem;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        @apply bg-theme-primary-light;
+    }
+
+    @supports (overflow: overlay) {
+        html {
+            overflow: overlay;
+        }
+    }
+
+    @supports not (overflow: overlay) {
+        ::-webkit-scrollbar {
+            background: #6A706E;
+        }
+    }
+}
+
+@supports not selector(::-webkit-scrollbar) {
+    html {
+        scrollbar-color: #00DFE7 #6A706E;
+        scrollbar-width: thin;
+    }
+}
+
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 :root {
@@ -146,11 +190,11 @@ section:nth-of-type(2) {
 }
 
 #section-curve-start {
-    @apply w-screen transform translate-y-[-99%] text-theme-secondary-light dark:text-theme-loader-dark mb-[-5vw] mt-[7vw];
+    @apply w-screen translate-y-[-99%] text-theme-secondary-light dark:text-theme-loader-dark mb-[-5vw] mt-[7vw];
 }
 
 #section-curve-end {
-    @apply w-screen transform translate-y-[98%] text-theme-secondary-light dark:text-theme-loader-dark bg-transparent mt-[-12vw] mb-[15vw];
+    @apply w-screen translate-y-[98%] text-theme-secondary-light dark:text-theme-loader-dark bg-transparent mt-[-12vw] mb-[15vw];
 }
 
 #home {
