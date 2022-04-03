@@ -122,7 +122,6 @@ export default class App extends React.Component<any, AppState> {
           {/* See https://developer.mozilla.org/en-US/docs/Web/CSS/position#fixed */}
           <div id="menu-blur-layer" className={`${this.state.menuActive ? '-translate-x-full' : ''}`} onClick={() => { this.toggleMenu(); }}/>
           <section id="about-me">
-            {/* TODO! fix w-screen overlapping with scrollbar, causing it to overflow */}
             <div id="section-curve-start">
               <svg
                 className="fill-current w-screen"
@@ -142,7 +141,7 @@ export default class App extends React.Component<any, AppState> {
                     <p>I am passionate about creating software that improves and simplifies the lives of those around
                       me. My interest in software development started back in 2019 when I stumbled upon a youtube
                       tutorial on building an android application.</p>
-                    <p className="after:content-none md:after:p-after">
+                    <p className="after:content-none md:after:p-after anchor-highlight">
                       Fast forward to today, I have developed software for clients ranging from individuals to large
                       enterprise corporations such as&nbsp;
                       <a href="https://www.tokopedia.com/about/" target="_blank" rel="noopener noreferrer">Tokopedia</a>
