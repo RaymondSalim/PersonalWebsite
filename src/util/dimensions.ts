@@ -18,14 +18,15 @@ interface ScreenSize {
   innerHeight: number
 }
 
+const screenSize = getScreenSize();
+
+/**
+ * Returns converted dimensions
+ *
+ * @params px, rem - only one is required, if more than one parameter is specified, only one will be considered in that order (px, rem)
+ * @return Dimensions - an object containing all the converted dimension
+ */
 export function convert(px?: number, rem?: number): Dimensions | null {
-  /**
-   * Returns converted dimensions
-   *
-   * @params px, rem - only one is required, if more than one parameter is specified, only one will be considered in that order (px, rem)
-   * @return Dimensions - an object containing all the converted dimension
-   */
-  const screenSize = getScreenSize();
   const dpi = getScreenDPI();
 
   if (px != null) {
@@ -37,6 +38,21 @@ export function convert(px?: number, rem?: number): Dimensions | null {
   }
 
   return null;
+}
+
+/**
+ * Calculate the height (including border, padding, margin, scrollbar) of a HTMLElement
+ *
+ * @param element the element to be calculated
+ * @return number - sum of height, or 0
+ */
+export function getOuterHeight(element: HTMLElement | null): number {
+  // eslint-disable-next-line no-unsafe-optional-chaining
+  return (
+    (element?.offsetHeight ?? 0)
+      + Number(element?.style.marginTop)
+      + Number(element?.style.marginBottom)
+  );
 }
 
 function getScreenSize(): ScreenSize {

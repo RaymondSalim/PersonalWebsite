@@ -1,0 +1,42 @@
+#experience-tab {
+    @apply max-w-[700px] mx-auto flex flex-col md:flex-row justify-center;
+}
+
+button[id^="tab-"] {
+    @apply px-5 py-1 relative duration-1000;
+    transition: color;
+}
+button[id^="tab-"]:focus,
+button[id^="tab-"][aria-selected=true] {
+    @apply ring-0 text-theme-primary-lighter;
+}
+
+@keyframes job-desc-fade-out {
+    from {
+        position: static;
+        transform: translateY(0);
+        opacity: 100%;
+    }
+
+    to {
+        position: absolute;
+        top: 0;
+        transform: translateY(2rem);
+        opacity: 0;
+    }
+}
+
+@keyframes job-desc-fade-in {
+    from {
+        position: absolute;
+        top: 0;
+        transform: translateY(2rem);
+        opacity: 0;
+    }
+
+    to {
+        position: static;
+        transform: translateY(0);
+        opacity: 100%;
+    }
+}
