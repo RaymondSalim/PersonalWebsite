@@ -14,6 +14,7 @@ import { Java } from './icons/Java';
 import { PostgreSQL } from './icons/PostgreSQL';
 import { HTML } from './icons/HTML';
 import { Skill } from './icons/Skill';
+import { Jobs } from './components/Jobs';
 
 export interface AppState {
   siteReady: boolean
@@ -157,7 +158,7 @@ export default class App extends React.Component<any, AppState> {
                 <div className="-mt-10 md:mt-0 row-start-2 md:row-start-1 md:col-start-2">
                   <p className="before:content-none md:before:p-before">When I am not coding, you can find me doing any
                     of the following:</p>
-                  <ul className="list-disc list-inside mt-8 ml-2 marker:text-theme-primary-light">
+                  <ul className="list-disc list-outside mt-8 ml-5">
                     <li>Badminton</li>
                     <li>Ultimate Frisbee</li>
                     <li>Watching/playing video games</li>
@@ -173,6 +174,12 @@ export default class App extends React.Component<any, AppState> {
                 </div>
               </div>
             </div>
+          </section>
+          <section id="experience">
+            <div id="experience-content" className="content">
+              <h2>Experience</h2>
+              <Jobs/>
+            </div>
             <div id="section-curve-end">
               <svg
                 className="fill-current w-screen"
@@ -186,15 +193,15 @@ export default class App extends React.Component<any, AppState> {
               </svg>
             </div>
           </section>
-          <footer>
-            <div>
-              <span>Icons by </span>
-              <a href="https://colebemis.com/" target="_blank" rel="noopener noreferrer">Cole Bemis</a>
-              <span>, </span>
-              <a href=" https://icons.grommet.io/" target="_blank" rel="noopener noreferrer">grommet-icons</a>
-            </div>
-          </footer>
         </main>
+        <footer>
+          <div>
+            <span>Icons by </span>
+            <a href="https://colebemis.com/" target="_blank" rel="noopener noreferrer">Cole Bemis</a>
+            <span>, </span>
+            <a href=" https://icons.grommet.io/" target="_blank" rel="noopener noreferrer">grommet-icons</a>
+          </div>
+        </footer>
       </div>
     );
   }
