@@ -212,7 +212,7 @@ export class Jobs extends React.Component<JobsProps, JobsState> {
     });
     return (
       <div
-        id={'experience-tab'}
+        id={'experience'}
       >
         <div
           role={'tablist'}
