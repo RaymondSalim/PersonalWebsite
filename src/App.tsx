@@ -142,15 +142,15 @@ export default class App extends React.Component<any, AppState> {
                     <p>I am passionate about creating software that improves and simplifies the lives of those around
                       me. My interest in software development started back in 2019 when I stumbled upon a youtube
                       tutorial on building an android application.</p>
-                    <p className="after:content-none md:after:p-after anchor-highlight">
+                    <p className="after:content-none md:after:p-after">
                       Fast forward to today, I have developed software for clients ranging from individuals to large
                       enterprise corporations such as&nbsp;
-                      <a href="https://www.tokopedia.com/about/" target="_blank" rel="noopener noreferrer">Tokopedia</a>
+                      <a href="https://www.tokopedia.com/about/" target="_blank" rel="noopener noreferrer" className={'text-highlight'}>Tokopedia</a>
                       ,&nbsp;
-                      <a href="https://www.kalbe.co.id/" target="_blank" rel="noopener noreferrer">Kalbe Farma</a>
+                      <a href="https://www.kalbe.co.id/" target="_blank" rel="noopener noreferrer" className={'text-highlight'}>Kalbe Farma</a>
                       , and&nbsp;
                       <a href="https://mandiri-investasi.co.id/en/" target="_blank"
-                         rel="noopener noreferrer">Mandiri</a>
+                         rel="noopener noreferrer" className={'text-highlight'}>Mandiri</a>
                       .
                     </p>
                   </div>
