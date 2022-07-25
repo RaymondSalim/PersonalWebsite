@@ -64,6 +64,7 @@ export class Jobs extends React.Component<JobsProps, JobsState> {
   }
 
   setActiveTabID(i: number, el: React.MouseEvent<HTMLButtonElement>) {
+    if (this.state.activeTabID === i) return;
     if (this.state.isAnimating) {
       el.currentTarget.blur();
       return;
@@ -144,12 +145,15 @@ export class Jobs extends React.Component<JobsProps, JobsState> {
           data-key={index}
           id={`tab-${index}`}
           role='tab'
-          tabIndex={this.state.activeTabID === index ? 0 : -1}
+          tabIndex={-1}
           aria-selected={this.state.activeTabID === index}
           aria-controls={`panel-${index}`}
           className={'w-full whitespace-nowrap text-left text-gray-400'}
         >
-          <span className={`text-highlight ${this.state.activeTabID === index ? 'text-theme-primary-light dark:text-theme-primary-lighter' : ''}`}>{job.name}</span>
+          <span
+            tabIndex={0}
+            className={`text-highlight focus-reset ${this.state.activeTabID === index ? 'text-theme-primary-light dark:text-theme-primary-lighter' : ''}`}
+          >{job.name}</span>
         </button>
       );
     });
@@ -191,7 +195,12 @@ export class Jobs extends React.Component<JobsProps, JobsState> {
             >
               &nbsp;@&nbsp;
               <a
-                href={job.url} target="_blank" rel="noopener noreferrer" className={'text-highlight'}>{job.name}
+                href={job.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={'text-highlight'}
+                tabIndex={this.state.activeTabID === index ? 0 : -1}
+              >{job.name}
               </a>
             </span>
           </h3>
@@ -212,7 +221,7 @@ export class Jobs extends React.Component<JobsProps, JobsState> {
     });
     return (
       <div
-        id={'experience'}
+        id={'experience-grid'}
       >
         <div
           role={'tablist'}

@@ -1,4 +1,4 @@
-#experience-tab {
+#experience-grid {
     @apply max-w-[700px] mx-auto flex flex-col md:flex-row justify-center;
 }
 
