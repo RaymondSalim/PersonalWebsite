@@ -34,9 +34,9 @@ export class Menu extends React.Component<MenuProps> {
             </a>
           </li>
           <li>
-            <a href="#skills-experiences" onClick={this.props.onItemClick}>
+            <a href="#experience" onClick={this.props.onItemClick}>
               <Work/>
-              <span>Skills & Experience</span>
+              <span>Experience</span>
             </a>
           </li>
           <li>

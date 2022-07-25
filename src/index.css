@@ -1,13 +1,13 @@
+@import "tailwindcss/base.css";
+@import "tailwindcss/components.css";
+@import "tailwindcss/utilities.css";
+
 @import "buttons/buttons.css";
 @import "icons/icons.css";
 @import "navigation/navigation.css";
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "components/components.css";
 
 /* Scrollbar */
-
 @supports selector(::-webkit-scrollbar) {
     /* Width */
     ::-webkit-scrollbar {
@@ -57,117 +57,12 @@ html {
     --header-dark: rgb(6, 8, 12, var(--tw-bg-opacity));
 }
 
-a:focus,
-button:focus {
-    @apply ring-2 ring-theme-primary-light outline-none;
-}
-
 body {
     font-family: 'Montserrat', sans-serif;
 }
 
-/* Headings & texts */
-h1, h2, h3, h4, h5, h6, a, h1 span {
-    @apply dark:text-white relative;
-}
-
-span, p, li {
-    @apply dark:text-gray-400 text-gray-500 relative 2xl:text-xl;
-}
-
-p > a {
-    @apply text-theme-primary-light dark:text-theme-primary-lighter relative no-underline focus:ring-0;
-}
-
-p > a::after {
-    @apply inline-block content-[""] absolute left-0 bottom-0 h-[1px] w-0 bg-theme-primary-lighter transition-all ease-in-out;
-}
-
-p > a:focus::after,
-p > a:hover::after {
-    width: 100%;
-}
-
-ul {
-    @apply relative;
-}
-
-h1 {
-    @apply text-4xl font-bold my-7;
-}
-
-h2 {
-    @apply dark:text-white text-black text-3xl my-5 mb-8 font-semibold;
-    font-size: clamp(1.4rem, 4vw, 2.65rem);
-    line-height: clamp(1.4rem, 4vw, 2.65rem);
-}
-
-h3 {
-    @apply text-xl font-semibold dark:text-gray-400 my-3;
-}
-
-h1::before,
-h1::after,
-h2::before,
-h2::after,
-h3::before,
-h3::after,
-p::after,
-p::before,
-ul::before,
-ul::after {
-    @apply text-gray-400 dark:text-gray-600 text-base absolute -left-4 font-medium;
-    font-family: 'Caveat', cursive;
-}
-
-h1::before {
-    @apply -mt-6;
-    content: "<h1>";
-}
-
-h1::after {
-    @apply -bottom-6;
-    content: "</h1>";
-}
-
-h2::before {
-    @apply -mt-5;
-    content: "<h2>";
-}
-
-h2::after {
-    @apply -bottom-5;
-    content: "</h2>";
-}
-
-h3::before {
-    @apply -mt-5;
-    content: "<h2>";
-}
-
-h3::after {
-    @apply -bottom-5;
-    content: "</h2>";
-}
-
-p::before {
-    @apply -mt-5;
-    content: "<p>";
-}
-
-p::after {
-    @apply -bottom-5;
-    content: "</p>";
-}
-
-ul::before {
-    @apply -mt-5;
-    content: "<ul>";
-}
-
-ul::after {
-    @apply -bottom-5;
-    content: "</ul>";
+main {
+    @apply bg-theme-secondary-light dark:bg-theme-loader-dark;
 }
 
 .multiple-p > p:first-of-type::after,
@@ -177,16 +72,29 @@ ul::after {
     content: '';
 }
 
+.text-highlight {
+    @apply relative no-underline focus:ring-0;
+}
+
+.text-highlight::after {
+    @apply inline-block content-[""] absolute left-0 bottom-0 h-[1px] w-0 bg-theme-primary-lighter transition-all ease-in-out;
+}
+
+.text-highlight:focus::after,
+.text-highlight:hover::after {
+    @apply w-full;
+}
+
 #menu-blur-layer {
     @apply w-screen h-screen fixed top-0 left-full z-30 backdrop-blur-sm bg-white bg-opacity-0;
 }
 
-section:not(:first-of-type) {
-    @apply bg-theme-secondary-light dark:bg-theme-loader-dark;
+section:nth-of-type(2) {
+    @apply mt-[100vh] mb-32 md:mb-36 pt-0;
 }
 
-section:nth-of-type(2) {
-    @apply mt-[100vh] pt-0;
+section:not(:first-of-type):not(:last-of-type):not(:nth-of-type(2)) {
+    @apply my-32 md:my-36;
 }
 
 #section-curve-start {
@@ -198,7 +106,7 @@ section:nth-of-type(2) {
 }
 
 #home {
-    @apply h-screen fixed top-0 right-0 left-0 bg-theme-loader-light dark:bg-theme-secondary-dark;
+    @apply h-screen fixed top-0 right-0 left-0 bg-theme-loader-light dark:bg-theme-secondary-dark max-w-[100vw];
     z-index: -9000;
 }
 
@@ -233,11 +141,117 @@ section:nth-of-type(2) {
     @apply flex flex-wrap justify-evenly gap-x-2 gap-y-2 mt-8;
 }
 
-@layer utilities {
-    @variants dark {
-        .page-background-color {
-            background-color: #06080c;
-        }
+@layer base {
+    /* Headings & texts */
+    h1, h2, h3, h4, h5, h6, a, h1 span {
+        @apply dark:text-white relative;
+    }
+
+    span, p, li {
+        @apply dark:text-gray-400 text-gray-500 relative 2xl:text-xl;
+    }
+
+    ul {
+        @apply relative;
+    }
+
+    h1 {
+        @apply text-4xl font-bold my-7;
+    }
+
+    h2 {
+        @apply dark:text-white text-black text-3xl my-5 mb-8 font-semibold;
+        font-size: clamp(1.4rem, 4vw, 2.65rem);
+        line-height: clamp(1.4rem, 4vw, 2.65rem);
+    }
+
+    h3 {
+        @apply text-xl font-semibold dark:text-gray-400 my-3;
+    }
+
+    .div-pseudo {
+        @apply relative
+    }
+
+    h1::before,
+    h1::after,
+    h2::before,
+    h2::after,
+    h3::before,
+    h3::after,
+    p::after,
+    p::before,
+    ul::before,
+    ul::after {
+        @apply text-gray-400 dark:text-gray-600 text-base absolute -left-4 font-medium;
+        font-family: 'Caveat', cursive;
+    }
+
+    h1::before {
+        @apply -mt-6;
+        content: "<h1>";
+    }
+
+    h1::after {
+        @apply -bottom-6;
+        content: "</h1>";
+    }
+
+    h2::before {
+        @apply -mt-5;
+        content: "<h2>";
+    }
+
+    h2::after {
+        @apply -bottom-5;
+        content: "</h2>";
+    }
+
+    h3::before {
+        @apply -mt-5;
+        content: "<h2>";
+    }
+
+    h3::after {
+        @apply -bottom-5;
+        content: "</h2>";
+    }
+
+    p::before {
+        @apply -mt-5;
+        content: "<p>";
+    }
+
+    p::after {
+        @apply -bottom-5;
+        content: "</p>";
+    }
+
+    ul::before {
+        @apply -mt-5;
+        content: "<ul>";
+    }
+
+    ul::after {
+        @apply -bottom-5;
+        content: "</ul>";
+    }
+
+    ul.list-outside::before {
+        @apply -ml-5;
+    }
+
+    ul.list-outside::after {
+        @apply -ml-5;
+    }
+
+    a {
+        @apply text-theme-primary-light dark:text-theme-primary-lighter;
+    }
+
+    a:focus,
+    button:focus {
+        @apply ring-2 ring-theme-primary-light outline-none;
     }
 
     .p-before {
@@ -248,6 +262,18 @@ section:nth-of-type(2) {
     .p-after {
         @apply -bottom-5;
         content: "</p>";
+    }
+
+    li::marker {
+        @apply text-theme-primary-light
+    }
+}
+
+@layer utilities {
+    @variants dark {
+        .page-background-color {
+            background-color: #06080c;
+        }
     }
 
     .color-red {
@@ -289,5 +315,9 @@ section:nth-of-type(2) {
 
     .bg-skills-icon {
         background: radial-gradient(circle, rgba(255, 255, 255, 1) 65%, rgba(0, 173, 181, 1) 25%, rgba(0, 173, 181, 1) 100%);
+    }
+
+    .no-pseudo {
+        @apply before:content-none after:content-none;
     }
 }

@@ -17,8 +17,8 @@ export class NavBar extends React.Component<NavBarDesktopProps> {
             </a>
           </li>
           <li>
-            <a href="#skills-experiences">
-              <span>Skills & Experience</span>
+            <a href="#experience">
+              <span>Experience</span>
             </a>
           </li>
           <li>
