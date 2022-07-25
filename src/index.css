@@ -250,7 +250,8 @@ section:not(:first-of-type):not(:last-of-type):not(:nth-of-type(2)) {
     }
 
     a:focus,
-    button:focus {
+    button:focus,
+    .focus-reset:focus {
         @apply ring-2 ring-theme-primary-light outline-none;
     }
 

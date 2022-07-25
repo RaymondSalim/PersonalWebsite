@@ -1,7 +1,7 @@
 # Changelog
 <hr>
 
-### • v0.6.1 (2021-04-14)
+### • v0.6.1 (2021-07-25)
 ```markdown
 - Added Experience section
 ```
