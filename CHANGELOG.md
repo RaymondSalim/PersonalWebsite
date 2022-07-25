@@ -1,6 +1,11 @@
 # Changelog
 <hr>
 
+### • v0.6.1 (2021-07-25)
+```markdown
+- Added Experience section
+```
+
 ### • v0.6.0 (2021-04-02)
 ```markdown
 - [Breaking] Updated dependencies.
