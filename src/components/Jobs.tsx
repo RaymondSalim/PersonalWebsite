@@ -64,6 +64,7 @@ export class Jobs extends React.Component<JobsProps, JobsState> {
   }
 
   setActiveTabID(i: number, el: React.MouseEvent<HTMLButtonElement>) {
+    if (this.state.activeTabID === i) return;
     if (this.state.isAnimating) {
       el.currentTarget.blur();
       return;
