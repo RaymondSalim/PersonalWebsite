@@ -14,6 +14,7 @@ import { Java } from './icons/Java';
 import { PostgreSQL } from './icons/PostgreSQL';
 import { HTML } from './icons/HTML';
 import { Skill } from './icons/Skill';
+import { Jobs } from './components/Jobs';
 
 export interface AppState {
   siteReady: boolean
@@ -122,7 +123,6 @@ export default class App extends React.Component<any, AppState> {
           {/* See https://developer.mozilla.org/en-US/docs/Web/CSS/position#fixed */}
           <div id="menu-blur-layer" className={`${this.state.menuActive ? '-translate-x-full' : ''}`} onClick={() => { this.toggleMenu(); }}/>
           <section id="about-me">
-            {/* TODO! fix w-screen overlapping with scrollbar, causing it to overflow */}
             <div id="section-curve-start">
               <svg
                 className="fill-current w-screen"
@@ -145,12 +145,12 @@ export default class App extends React.Component<any, AppState> {
                     <p className="after:content-none md:after:p-after">
                       Fast forward to today, I have developed software for clients ranging from individuals to large
                       enterprise corporations such as&nbsp;
-                      <a href="https://www.tokopedia.com/about/" target="_blank" rel="noopener noreferrer">Tokopedia</a>
+                      <a href="https://www.tokopedia.com/about/" target="_blank" rel="noopener noreferrer" className={'text-highlight'}>Tokopedia</a>
                       ,&nbsp;
-                      <a href="https://www.kalbe.co.id/" target="_blank" rel="noopener noreferrer">Kalbe Farma</a>
+                      <a href="https://www.kalbe.co.id/" target="_blank" rel="noopener noreferrer" className={'text-highlight'}>Kalbe Farma</a>
                       , and&nbsp;
                       <a href="https://mandiri-investasi.co.id/en/" target="_blank"
-                         rel="noopener noreferrer">Mandiri</a>
+                         rel="noopener noreferrer" className={'text-highlight'}>Mandiri</a>
                       .
                     </p>
                   </div>
@@ -158,7 +158,7 @@ export default class App extends React.Component<any, AppState> {
                 <div className="-mt-10 md:mt-0 row-start-2 md:row-start-1 md:col-start-2">
                   <p className="before:content-none md:before:p-before">When I am not coding, you can find me doing any
                     of the following:</p>
-                  <ul className="list-disc list-inside mt-8 ml-2 marker:text-theme-primary-light">
+                  <ul className="list-disc list-outside mt-8 ml-5">
                     <li>Badminton</li>
                     <li>Ultimate Frisbee</li>
                     <li>Watching/playing video games</li>
@@ -174,6 +174,12 @@ export default class App extends React.Component<any, AppState> {
                 </div>
               </div>
             </div>
+          </section>
+          <section id="experience">
+            <div id="experience-content" className="content">
+              <h2>Experience</h2>
+              <Jobs/>
+            </div>
             <div id="section-curve-end">
               <svg
                 className="fill-current w-screen"
@@ -187,15 +193,15 @@ export default class App extends React.Component<any, AppState> {
               </svg>
             </div>
           </section>
-          <footer>
-            <div>
-              <span>Icons by </span>
-              <a href="https://colebemis.com/" target="_blank" rel="noopener noreferrer">Cole Bemis</a>
-              <span>, </span>
-              <a href=" https://icons.grommet.io/" target="_blank" rel="noopener noreferrer">grommet-icons</a>
-            </div>
-          </footer>
         </main>
+        <footer>
+          <div>
+            <span>Icons by </span>
+            <a href="https://colebemis.com/" target="_blank" rel="noopener noreferrer">Cole Bemis</a>
+            <span>, </span>
+            <a href=" https://icons.grommet.io/" target="_blank" rel="noopener noreferrer">grommet-icons</a>
+          </div>
+        </footer>
       </div>
     );
   }

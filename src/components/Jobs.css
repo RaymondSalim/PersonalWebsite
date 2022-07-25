@@ -1,0 +1,58 @@
+#experience-tab {
+    @apply max-w-[700px] mx-auto flex flex-col md:flex-row justify-center;
+}
+
+button[id^="tab-"] {
+    @apply px-5 py-1 relative duration-1000;
+    transition: color;
+}
+button[id^="tab-"]:focus,
+button[id^="tab-"][aria-selected=true] {
+    @apply ring-0 text-theme-primary-lighter;
+}
+
+#job-tabs {
+    @apply flex md:flex-col w-full md:w-max overflow-auto md:overflow-visible items-start dark:text-white relative div-pseudo mt-3;
+}
+
+#job-tabs::-webkit-scrollbar {
+    height: 3px;
+}
+
+@keyframes job-desc-fade-out {
+    0% {
+        position: static;
+        transform: translateY(0);
+        opacity: 100%;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        position: absolute;
+        top: 0;
+        transform: translateY(2rem);
+        opacity: 0;
+    }
+}
+
+@keyframes job-desc-fade-in {
+    0% {
+        position: absolute;
+        top: 0;
+        transform: translateY(2rem);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 100%;
+    }
+
+    100% {
+        position: static;
+        transform: translateY(0);
+        opacity: 100%;
+    }
+}
