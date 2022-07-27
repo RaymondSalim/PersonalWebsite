@@ -14,7 +14,7 @@ import { Java } from './icons/Java';
 import { PostgreSQL } from './icons/PostgreSQL';
 import { HTML } from './icons/HTML';
 import { Skill } from './icons/Skill';
-import { Jobs } from './components/Jobs';
+import { Experiences } from './components/Experiences';
 
 export interface AppState {
   siteReady: boolean
@@ -178,7 +178,7 @@ export default class App extends React.Component<any, AppState> {
           <section id="experience">
             <div id="experience-content" className="content">
               <h2>Experience</h2>
-              <Jobs/>
+              <Experiences/>
             </div>
             <div id="section-curve-end">
               <svg

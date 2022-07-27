@@ -11,15 +11,15 @@ button[id^="tab-"][aria-selected=true] {
     @apply ring-0 text-theme-primary-lighter;
 }
 
-#job-tabs {
+#experience-tabs {
     @apply flex md:flex-col w-full md:w-max overflow-auto md:overflow-visible items-start dark:text-white relative div-pseudo mt-3;
 }
 
-#job-tabs::-webkit-scrollbar {
+#experience-tabs::-webkit-scrollbar {
     height: 3px;
 }
 
-@keyframes job-desc-fade-out {
+@keyframes exp-desc-fade-out {
     0% {
         position: static;
         transform: translateY(0);
@@ -38,7 +38,7 @@ button[id^="tab-"][aria-selected=true] {
     }
 }
 
-@keyframes job-desc-fade-in {
+@keyframes exp-desc-fade-in {
     0% {
         position: absolute;
         top: 0;
