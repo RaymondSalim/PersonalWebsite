@@ -18,6 +18,55 @@ interface ProjectsState {}
 interface ProjectsProps {}
 
 export class Projects extends React.Component<ProjectsProps, ProjectsState> {
+  private imageRefs: React.RefObject<HTMLDivElement>[];
+
+  constructor(props: ProjectsProps) {
+    super(props);
+
+    this.imageRefs = [];
+  }
+
+  handleScroll() {
+    if (window.innerWidth <= 768) {
+      return;
+    }
+
+    this.imageRefs.forEach((refObj) => {
+      if (refObj.current === null) {
+        return;
+      }
+
+      const el = refObj.current;
+      const imageEl: HTMLElement | null = el.querySelector('.project-image-container');
+      const descEl: HTMLElement | null = el.querySelector('.project-desc-container');
+
+      if (imageEl === null || descEl === null) {
+        return;
+      }
+
+      if (
+        imageEl.getBoundingClientRect().top > window.innerHeight * 1.2
+        || imageEl.getBoundingClientRect().bottom < window.innerHeight * -0.2
+      ) {
+        descEl.style.transform = '';
+      }
+
+      const target = window.innerHeight * 0.5;
+      const diff = imageEl.getBoundingClientRect().top + (imageEl.offsetHeight / 2) - target;
+      const diffPercentage = (0.35 * diff) / target;
+
+      descEl.style.transform = `translateY(${imageEl.offsetHeight * diffPercentage}px)`;
+    });
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll.bind(this));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll.bind(this));
+  }
+
   render() {
     const projects: Project[] = [
       {
@@ -59,7 +108,6 @@ export class Projects extends React.Component<ProjectsProps, ProjectsState> {
       },
     ];
     // TODO! Find better color for light scheme? (replace bg-theme-secondary-dark)
-    // TODO! Parallax Scrolling
     return (
       <div id="project-grid" className={'flex flex-col gap-y-24 md:gap-y-36'}>
         {
@@ -67,11 +115,22 @@ export class Projects extends React.Component<ProjectsProps, ProjectsState> {
             const descriptionContent = {
               __html: proj.description,
             };
+            let ref = this.imageRefs[index];
+            if (ref === undefined) {
+              this.imageRefs[index] = React.createRef();
+              ref = this.imageRefs[index];
+            }
 
             return (
-              <div key={proj.name} id={`project-${index}`} className={'group w-full grid grid-cols-12 items-center'}>
+              <div
+                key={proj.name}
+                id={`project-${index}`}
+                className={'group w-full grid grid-cols-12 items-center'}
+                ref={ref}
+              >
                 <div
-                  className={'relative bp-max-768:h-full bg-theme-primary-light hover:bg-transparent transition-colors col-start-1 col-end-13 md:group-odd:col-start-1 md:group-odd:col-end-8 md:group-even:col-start-6 md:group-even:col-end-13 row-start-1 row-end-2 md:after:absolute md:after:w-full md:after:h-full md:after:content-[""] md:after:border md:after:border-gray-600 dark:md:after:border-white md:after:top-0 md:after:left-0 z-0 md:group-odd:md:after:translate-x-4 md:group-even:md:after:-translate-x-4 md:after:translate-y-4 hover:md:group-odd:md:after:translate-x-0 hover:md:group-even:md:after:translate-x-0 hover:md:after:translate-y-0 md:after:transition-all md:after:-z-20 drop-shadow-2xl'}
+                  data-image-id={index}
+                  className={'project-image-container relative bp-max-768:h-full bg-theme-primary-light hover:bg-transparent transition-colors col-start-1 col-end-13 md:group-odd:col-start-1 md:group-odd:col-end-8 md:group-even:col-start-6 md:group-even:col-end-13 row-start-1 row-end-2 md:after:absolute md:after:w-full md:after:h-full md:after:content-[""] md:after:border md:after:border-gray-600 dark:md:after:border-white md:after:top-0 md:after:left-0 z-0 md:group-odd:md:after:translate-x-4 md:group-even:md:after:-translate-x-4 md:after:translate-y-4 hover:md:group-odd:md:after:translate-x-0 hover:md:group-even:md:after:translate-x-0 hover:md:after:translate-y-0 md:after:transition-all md:after:-z-20 drop-shadow-2xl'}
                 >
                   <img
                     src={proj.imgUrl}
@@ -83,7 +142,10 @@ export class Projects extends React.Component<ProjectsProps, ProjectsState> {
                     className={'md:mix-blend-multiply bp-max-768:h-full bp-max-768:object-cover'}
                   />
                 </div>
-                <div id="project-desc-container" className={'bp-max-768:bg-theme-secondary-dark bp-max-768:bg-opacity-90 bp-max-768:p-10 col-start-1 col-end-13 md:group-odd:col-start-7 md:group-odd:col-end-13 md:group-even:col-start-1 md:group-even:col-end-7 row-start-1 row-end-2 md:group-odd:text-right md:group-even:text-left child-no-pseudo z-20'}>
+                <div
+                  data-description-id={index}
+                  className={'project-desc-container bp-max-768:bg-theme-secondary-dark bp-max-768:bg-opacity-90 bp-max-768:p-10 col-start-1 col-end-13 md:group-odd:col-start-7 md:group-odd:col-end-13 md:group-even:col-start-1 md:group-even:col-end-7 row-start-1 row-end-2 md:group-odd:text-right md:group-even:text-left child-no-pseudo z-20'}
+                >
                   <h3 className={'text-theme-primary-light dark:text-theme-primary-lighter my-4'}>{proj.name}</h3>
                   <div className={'md:bg-theme-secondary-dark rounded-md p-6 bp-max-768:px-0 my-4 drop-shadow-2xl'}>
                     <p className={'mb-4 text-white'} dangerouslySetInnerHTML={descriptionContent} />
