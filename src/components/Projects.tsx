@@ -58,10 +58,8 @@ export class Projects extends React.Component<ProjectsProps, ProjectsState> {
         date: new Date(2020, 10),
       },
     ];
-    // TODO! Add overlap between descriptions and image
-    // TODO! Fix description color bg
+    // TODO! Fix description color bg (replace bg-gray-600)
     // TODO! Parallax Scrolling
-    // TODO! Fix color (replace bg-gray-600)
     return (
       <div id="project-grid" className={'flex flex-col gap-y-24 md:gap-y-36'}>
         {
