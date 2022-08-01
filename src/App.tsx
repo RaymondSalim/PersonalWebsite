@@ -15,6 +15,7 @@ import { PostgreSQL } from './icons/PostgreSQL';
 import { HTML } from './icons/HTML';
 import { Skill } from './icons/Skill';
 import { Experiences } from './components/Experiences';
+import { Projects } from './components/Projects';
 
 export interface AppState {
   siteReady: boolean
@@ -179,6 +180,12 @@ export default class App extends React.Component<any, AppState> {
             <div id="experience-content" className="content">
               <h2>Experience</h2>
               <Experiences/>
+            </div>
+          </section>
+          <section id="projects">
+            <div id="projects-content" className="content mb-16">
+              <h2>Projects</h2>
+              <Projects/>
             </div>
             <div id="section-curve-end">
               <svg
