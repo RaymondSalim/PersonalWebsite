@@ -58,7 +58,7 @@ export class Projects extends React.Component<ProjectsProps, ProjectsState> {
         date: new Date(2020, 10),
       },
     ];
-    // TODO! Fix description color bg (replace bg-gray-600)
+    // TODO! Find better color for light scheme? (replace bg-theme-secondary-dark)
     // TODO! Parallax Scrolling
     return (
       <div id="project-grid" className={'flex flex-col gap-y-24 md:gap-y-36'}>
@@ -83,9 +83,9 @@ export class Projects extends React.Component<ProjectsProps, ProjectsState> {
                     className={'md:mix-blend-multiply bp-max-768:h-full bp-max-768:object-cover'}
                   />
                 </div>
-                <div id="project-desc-container" className={'bp-max-768:bg-gray-600 bp-max-768:bg-opacity-90 bp-max-768:p-10 col-start-1 col-end-13 md:group-odd:col-start-7 md:group-odd:col-end-13 md:group-even:col-start-1 md:group-even:col-end-7 row-start-1 row-end-2 md:group-odd:text-right md:group-even:text-left child-no-pseudo z-20'}>
+                <div id="project-desc-container" className={'bp-max-768:bg-theme-secondary-dark bp-max-768:bg-opacity-90 bp-max-768:p-10 col-start-1 col-end-13 md:group-odd:col-start-7 md:group-odd:col-end-13 md:group-even:col-start-1 md:group-even:col-end-7 row-start-1 row-end-2 md:group-odd:text-right md:group-even:text-left child-no-pseudo z-20'}>
                   <h3 className={'text-theme-primary-light dark:text-theme-primary-lighter my-4'}>{proj.name}</h3>
-                  <div className={'md:bg-gray-600 rounded-md p-6 bp-max-768:px-0 my-4 drop-shadow-2xl'}>
+                  <div className={'md:bg-theme-secondary-dark rounded-md p-6 bp-max-768:px-0 my-4 drop-shadow-2xl'}>
                     <p className={'mb-4 text-white'} dangerouslySetInnerHTML={descriptionContent} />
                   </div>
                   <ul className={'list-none my-4'}>
