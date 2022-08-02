@@ -1,6 +1,11 @@
 # Changelog
 <hr>
 
+### • v0.6.3 (2022-08-xx)
+```markdown
+- Fixed Page blur issues when switching between mobile and desktop dimension
+```
+
 ### • v0.6.2 (2022-08-01)
 ```markdown
 - Added Project Section
