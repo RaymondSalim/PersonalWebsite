@@ -24,19 +24,6 @@ module.exports = {
       },
       screens: {
         '2xl': '1536px',
-
-        'bp-max-1080': {
-          'max': '1080px',
-        },
-        'bp-max-768': {
-          'max': '768px',
-        },
-        'bp-max-600': {
-          'max': '600px'
-        },
-        'bp-max-480': {
-          'max': '480px'
-        }
       },
     },
   },

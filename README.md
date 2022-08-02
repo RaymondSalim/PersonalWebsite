@@ -73,9 +73,6 @@ Issue ID depends on where the issue was raised:
 * GitHub: use `GH-${issueID}`
 * Jira: use `PW-${issueID}`
 
-#### Merging
-Starting from release `v0.6.1`, all Pull Requests to the `main` branch from the `release` branch should be `Rebase and Merge`. all Pull Requests from the `development` branch to the `release` branch should be `Squash and Merge`. `Create a Merge Commit` is never used in this repository.
-
 ### Deployment Flow
 There are two environments, `staging` and `production`.
 #### Staging
