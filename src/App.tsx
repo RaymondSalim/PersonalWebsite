@@ -16,6 +16,7 @@ import { HTML } from './icons/HTML';
 import { Skill } from './icons/Skill';
 import { Experiences } from './components/Experiences';
 import { Projects } from './components/Projects';
+import { debounce } from './util/common';
 
 export interface AppState {
   siteReady: boolean
@@ -24,6 +25,8 @@ export interface AppState {
 }
 
 export default class App extends React.Component<any, AppState> {
+  debouncedResizeHandler: () => void = () => {};
+
   // @ts-ignore
   constructor(p) {
     super(p);
@@ -42,16 +45,30 @@ export default class App extends React.Component<any, AppState> {
     };
     this.toggleDocumentOverflow(true); // Prevent scrolling when page load animation is active
     this.initDarkMode();
+
+    this.debouncedResizeHandler = debounce<App>(this.handleResize, 200, this);
+    window.addEventListener('resize', this.debouncedResizeHandler);
   };
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.debouncedResizeHandler);
+  }
+
+  handleResize() {
+    if (window.innerWidth > 768) {
+      this.toggleMenu(false);
+    }
+  }
 
   toggleDocumentOverflow = (force?: boolean) => {
     document.documentElement.classList.toggle('overflow-hidden', force);
   };
 
-  toggleMenu = () => {
-    this.toggleDocumentOverflow(!this.state.menuActive); // Prevent scrolling when menu is open
+  toggleMenu = (forceShow?: boolean) => {
+    const expected = forceShow ?? !this.state.menuActive;
+    this.toggleDocumentOverflow(expected); // Prevent scrolling when menu is open
     this.setState({
-      menuActive: !this.state.menuActive,
+      menuActive: expected,
     });
   };
 
