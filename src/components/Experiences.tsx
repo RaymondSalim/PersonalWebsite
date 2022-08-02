@@ -56,11 +56,9 @@ export class Experiences extends React.Component<ExperiencesProps, ExperiencesSt
     });
 
     // TODO Find out why the getOuterHeight(maxHeightPanel.current) does not equal the actual height of element
-    if (this.state.minPanelHeight < getOuterHeight(maxHeightPanel.current)) {
-      this.setState({
-        minPanelHeight: getOuterHeight(maxHeightPanel.current) * 1.1,
-      });
-    }
+    this.setState({
+      minPanelHeight: getOuterHeight(maxHeightPanel.current) * 1.1,
+    });
   }
 
   setActiveTabID(i: number, el: React.MouseEvent<HTMLButtonElement>) {
