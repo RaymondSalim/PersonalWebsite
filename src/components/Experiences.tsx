@@ -2,7 +2,7 @@ import React from 'react';
 import { getOuterHeight } from '../util/dimensions';
 import { debounce } from '../util/common';
 
-type Job = {
+type Experience = {
   name: string;
   position: string;
   url: string;
@@ -11,23 +11,23 @@ type Job = {
   description: string[];
 };
 
-interface JobsState {
+interface ExperiencesState {
   activeTabID: number
   minPanelHeight: number
   isAnimating: boolean
 }
 
-interface JobsProps {}
+interface ExperiencesProps {}
 
-export class Jobs extends React.Component<JobsProps, JobsState> {
+export class Experiences extends React.Component<ExperiencesProps, ExperiencesState> {
   buttonRefs: React.RefObject<HTMLButtonElement>[] = [];
   panelRefs: React.RefObject<HTMLDivElement>[] = [];
   debouncedResizeHandler: () => void = () => {};
 
-  private ANIM_IN = 'job-desc-fade-in';
-  private ANIM_OUT = 'job-desc-fade-out';
+  private ANIM_IN = 'exp-desc-fade-in';
+  private ANIM_OUT = 'exp-desc-fade-out';
 
-  constructor(props: JobsProps) {
+  constructor(props: ExperiencesProps) {
     super(props);
 
     this.state = {
@@ -38,7 +38,7 @@ export class Jobs extends React.Component<JobsProps, JobsState> {
   }
 
   componentDidMount() {
-    this.debouncedResizeHandler = debounce<Jobs>(this.updateMinPanelHeight, 200, this);
+    this.debouncedResizeHandler = debounce<Experiences>(this.updateMinPanelHeight, 200, this);
     window.addEventListener('resize', this.debouncedResizeHandler);
 
     this.updateMinPanelHeight();
@@ -77,7 +77,7 @@ export class Jobs extends React.Component<JobsProps, JobsState> {
 
   // TODO! Find better way to animate panel change
   animationEndHandler(e: React.AnimationEvent<HTMLDivElement>) {
-    if (e.type === 'animationend' && e.animationName === 'job-desc-fade-out') {
+    if (e.type === 'animationend' && e.animationName === 'exp-desc-fade-out') {
       const targetPanel = this.panelRefs[this.state.activeTabID].current;
       if (targetPanel !== null && targetPanel.style != null) {
         targetPanel.style.animation = `${this.ANIM_IN} 0.15s ease-in forwards`;
@@ -91,7 +91,7 @@ export class Jobs extends React.Component<JobsProps, JobsState> {
 
   render() {
     let selector;
-    const jobs: Job[] = [
+    const experiences: Experience[] = [
       {
         name: 'Tokopedia',
         position: 'Software Engineer Intern',
@@ -135,7 +135,7 @@ export class Jobs extends React.Component<JobsProps, JobsState> {
         ],
       },
     ];
-    const tabs = jobs.map((job, index) => {
+    const tabs = experiences.map((exp, index) => {
       this.buttonRefs[index] = this.buttonRefs[index] ?? React.createRef();
       return (
         <button
@@ -153,7 +153,7 @@ export class Jobs extends React.Component<JobsProps, JobsState> {
           <span
             tabIndex={0}
             className={`text-highlight focus-reset ${this.state.activeTabID === index ? 'text-theme-primary-light dark:text-theme-primary-lighter' : ''}`}
-          >{job.name}</span>
+          >{exp.name}</span>
         </button>
       );
     });
@@ -170,7 +170,7 @@ export class Jobs extends React.Component<JobsProps, JobsState> {
         >&gt;</span>
       );
     }
-    const descriptions = jobs.map((job, index) => {
+    const descriptions = experiences.map((exp, index) => {
       this.panelRefs[index] = this.panelRefs[index] ?? React.createRef();
       return (
         <div
@@ -189,25 +189,25 @@ export class Jobs extends React.Component<JobsProps, JobsState> {
           className={'absolute inline-block top-0 left-0'}
         >
           <h3 className={'no-pseudo mb-0'}>
-            <span>{job.position}</span>
+            <span>{exp.position}</span>
             <span
               className={'text-theme-primary-light dark:text-theme-primary-lighter'}
             >
               &nbsp;@&nbsp;
               <a
-                href={job.url}
+                href={exp.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={'text-highlight'}
                 tabIndex={this.state.activeTabID === index ? 0 : -1}
-              >{job.name}
+              >{exp.name}
               </a>
             </span>
           </h3>
-          <p className={'no-pseudo'}>{`${job.monthYearStart} - ${job.monthYearEnd}`}</p>
+          <p className={'no-pseudo'}>{`${exp.monthYearStart} - ${exp.monthYearEnd}`}</p>
           <ul className={'mt-4 list-disc list-outside ml-8'}>
             {
-              job.description
+              exp.description
                 .map((desc, descIndex) => {
                   const content = {
                     __html: desc,
@@ -225,8 +225,8 @@ export class Jobs extends React.Component<JobsProps, JobsState> {
       >
         <div
           role={'tablist'}
-          aria-label={'Job tabs'}
-          id={'job-tabs'}
+          aria-label={'Experiences tabs'}
+          id={'experience-tabs'}
         >
           {tabs}
           {selector}
