@@ -1,6 +1,17 @@
 # Changelog
 <hr>
 
+### • v0.6.2 (2022-08-01)
+```markdown
+- Added Project Section
+- Updated Experience Section
+  - Renamed `Job` to `Experience`
+- Fix error in changelog
+- Added new section in README for merging instructions
+- Increased content side margin
+- Added new max-width breakpoints
+```
+
 ### • v0.6.1 (2022-07-25)
 ```markdown
 - Added Experience section
