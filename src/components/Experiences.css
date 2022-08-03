@@ -8,7 +8,7 @@ button[id^="tab-"] {
 }
 button[id^="tab-"]:focus,
 button[id^="tab-"][aria-selected=true] {
-    @apply ring-0 text-theme-primary-lighter;
+    @apply ring-0 text-blue-sky;
 }
 
 #experience-tabs {

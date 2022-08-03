@@ -19,7 +19,7 @@ export class DarkModeToggle extends React.Component<DarkModeToggleProps> {
     if (this.props.singleIconMode) {
       return (
         <div onKeyDown={this.handleKeyPress} tabIndex={0}
-             className={'relative focus:text-theme-primary-light dark:focus:text-theme-primary-light focus:ring-0 hover:text-theme-primary-light dark:text-white dark:hover:text-theme-primary-light select-none'}
+             className={'relative focus:text-blue-sapphire dark:focus:text-blue-sapphire focus:ring-0 hover:text-blue-sapphire dark:text-white dark:hover:text-blue-sapphire select-none'}
              onClick={this.props.onChange}>
           <Moon width={this.props.singleIconDim} height={this.props.singleIconDim}
                 className={`${this.props.isDarkModeEnabled ? 'opacity-100' : '-translate-y-full opacity-0'} absolute transition-all duration-300 text-inherit`}/>
@@ -33,9 +33,9 @@ export class DarkModeToggle extends React.Component<DarkModeToggleProps> {
       <Switch
         isChecked={this.props.isDarkModeEnabled}
         leftIcon={(
-          <Sun className={`mr-5 ${!this.props.isDarkModeEnabled ? 'text-theme-primary-light' : 'text-white'}`}/>)}
+          <Sun className={`mr-5 ${!this.props.isDarkModeEnabled ? 'text-blue-sapphire' : 'text-white'}`}/>)}
         rightIcon={(
-          <Moon className={`ml-5 ${this.props.isDarkModeEnabled ? 'text-theme-primary-light' : 'text-black'}`}/>)}
+          <Moon className={`ml-5 ${this.props.isDarkModeEnabled ? 'text-blue-sapphire' : 'text-black'}`}/>)}
         onChange={this.props.onChange}
         dimension={{}}
       />

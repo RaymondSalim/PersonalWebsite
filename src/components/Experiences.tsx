@@ -150,7 +150,7 @@ export class Experiences extends React.Component<ExperiencesProps, ExperiencesSt
         >
           <span
             tabIndex={0}
-            className={`text-highlight focus-reset ${this.state.activeTabID === index ? 'text-theme-primary-light dark:text-theme-primary-lighter' : ''}`}
+            className={`text-highlight focus-reset ${this.state.activeTabID === index ? 'text-blue-sapphire dark:text-blue-sky' : ''}`}
           >{exp.name}</span>
         </button>
       );
@@ -161,7 +161,7 @@ export class Experiences extends React.Component<ExperiencesProps, ExperiencesSt
 
       selector = (
         <span
-          className={'absolute leading-[0] !text-theme-primary-lighter transition-[top] hidden md:block'}
+          className={'absolute leading-[0] !text-blue-sky transition-[top] hidden md:block'}
           style={{
             top: selectorHeight,
           }}
@@ -189,7 +189,7 @@ export class Experiences extends React.Component<ExperiencesProps, ExperiencesSt
           <h3 className={'no-pseudo mb-0'}>
             <span>{exp.position}</span>
             <span
-              className={'text-theme-primary-light dark:text-theme-primary-lighter'}
+              className={'text-blue-sapphire dark:text-blue-sky'}
             >
               &nbsp;@&nbsp;
               <a

@@ -118,7 +118,7 @@ export default class App extends React.Component<any, AppState> {
       { icon: <Jenkins/>, label: 'Jenkins', padding: 'p-4' },
     ];
     return (
-      <div className="antialiased relative bg-theme-secondary-light dark:bg-theme-secondary-dark">
+      <div className="antialiased relative bg-gray-light dark:bg-gray-dark">
         <PageLoad togglePageOverflow={this.toggleDocumentOverflow} siteReady={this.state.siteReady}/>
         <Header navBarMobileProps={navbarMobileProps}/>
         <main className="transition-all ease-in duration-150">
