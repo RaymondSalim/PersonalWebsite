@@ -174,7 +174,7 @@ pwd
 ls -lah
 
 print_info "Building files"
-CI=false npm run "$npmArgs" build # setting CI=false to prevent craco interpreting warnings as errors
+CI=false REACT_APP_DEPLOYMENT_ENV="${ENV}" npm run "$npmArgs" build # setting CI=false to prevent craco interpreting warnings as errors
 
 print_info "Generating CNAME"
 echo "${DOMAIN}" > ./build/CNAME
