@@ -1,7 +1,7 @@
 # Changelog
 <hr>
 
-### • v0.6.3 (2022-08-xx)
+### • v0.6.3 (2022-08-04)
 ```markdown
 - Fixed Page blur issues when switching between mobile and desktop dimension
 - Fixed Experience section sizing issue when page width is resized
