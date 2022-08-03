@@ -5,6 +5,7 @@
 ```markdown
 - Fixed Page blur issues when switching between mobile and desktop dimension
 - Fixed Experience section sizing issue when page width is resized
+- Updated color naming in css
 ```
 
 ### • v0.6.2 (2022-08-01)
