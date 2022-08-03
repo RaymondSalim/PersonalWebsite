@@ -1,4 +1,6 @@
 import React, { SyntheticEvent } from 'react';
+import ReactGA from 'react-ga';
+
 import { NavbarMobileProps } from './navigation/navbar/mobile/NavBar';
 import { PageLoad } from './PageLoad';
 import { getItemFromLocalStorage, setItemInLocalStorage } from './util/LocalStorage';
@@ -26,6 +28,7 @@ export interface AppState {
 
 export default class App extends React.Component<any, AppState> {
   debouncedResizeHandler: () => void = () => {};
+  GOOGLE_TRACKING_ID = 'G-8LB72N3E8X';
 
   // @ts-ignore
   constructor(p) {
@@ -35,6 +38,8 @@ export default class App extends React.Component<any, AppState> {
       menuActive: false,
       darkMode: App.isDarkModeEnabled(),
     };
+
+    ReactGA.initialize(this.GOOGLE_TRACKING_ID);
   }
 
   componentDidMount = () => {
