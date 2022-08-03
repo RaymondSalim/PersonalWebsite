@@ -16,13 +16,13 @@
 
     /* Handle */
     ::-webkit-scrollbar-thumb {
-        @apply bg-theme-primary-lighter;
+        @apply bg-blue-sky;
         border-radius: 1rem;
     }
 
     /* Handle on hover */
     ::-webkit-scrollbar-thumb:hover {
-        @apply bg-theme-primary-light;
+        @apply bg-blue-sapphire;
     }
 
     @supports (overflow: overlay) {
@@ -62,7 +62,7 @@ body {
 }
 
 main {
-    @apply bg-theme-secondary-light dark:bg-theme-loader-dark;
+    @apply bg-gray-light dark:bg-gray-darkest;
 }
 
 .multiple-p > p:first-of-type::after,
@@ -77,7 +77,7 @@ main {
 }
 
 .text-highlight::after {
-    @apply inline-block content-[""] absolute left-0 bottom-0 h-[1px] w-0 bg-theme-primary-lighter transition-all ease-in-out;
+    @apply inline-block content-[""] absolute left-0 bottom-0 h-[1px] w-0 bg-blue-sky transition-all ease-in-out;
 }
 
 .text-highlight:focus::after,
@@ -98,15 +98,15 @@ section:not(:first-of-type):not(:last-of-type):not(:nth-of-type(2)) {
 }
 
 #section-curve-start {
-    @apply w-screen translate-y-[-99%] text-theme-secondary-light dark:text-theme-loader-dark mb-[-5vw] mt-[7vw];
+    @apply w-screen translate-y-[-99%] text-gray-light dark:text-gray-darkest mb-[-5vw] mt-[7vw];
 }
 
 #section-curve-end {
-    @apply w-screen translate-y-[98%] text-theme-secondary-light dark:text-theme-loader-dark bg-transparent mt-[-12vw] mb-[15vw];
+    @apply w-screen translate-y-[98%] text-gray-light dark:text-gray-darkest bg-transparent mt-[-12vw] mb-[15vw];
 }
 
 #home {
-    @apply h-screen fixed top-0 right-0 left-0 bg-theme-loader-light dark:bg-theme-secondary-dark max-w-[100vw];
+    @apply h-screen fixed top-0 right-0 left-0 bg-gray-lightest dark:bg-gray-dark max-w-[100vw];
     z-index: -9000;
 }
 
@@ -126,7 +126,7 @@ section:not(:first-of-type):not(:last-of-type):not(:nth-of-type(2)) {
 }
 
 #home-content h1 > span {
-    @apply hover:text-theme-primary-light transition-colors duration-200;
+    @apply hover:text-blue-sapphire transition-colors duration-200;
 }
 
 #home-content p {
@@ -246,13 +246,13 @@ section:not(:first-of-type):not(:last-of-type):not(:nth-of-type(2)) {
     }
 
     a {
-        @apply text-theme-primary-light dark:text-theme-primary-lighter;
+        @apply text-blue-sapphire dark:text-blue-sky;
     }
 
     a:focus,
     button:focus,
     .focus-reset:focus {
-        @apply ring-2 ring-theme-primary-light outline-none;
+        @apply ring-2 ring-blue-sapphire outline-none;
     }
 
     .p-before {
@@ -266,7 +266,7 @@ section:not(:first-of-type):not(:last-of-type):not(:nth-of-type(2)) {
     }
 
     li::marker {
-        @apply text-theme-primary-light
+        @apply text-blue-sapphire
     }
 }
 

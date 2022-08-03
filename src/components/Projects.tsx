@@ -107,7 +107,7 @@ export class Projects extends React.Component<ProjectsProps, ProjectsState> {
         date: new Date(2020, 10),
       },
     ];
-    // TODO! Find better color for light scheme? (replace bg-theme-secondary-dark)
+    // TODO! Find better color for light scheme? (replace bg-gray-dark)
     return (
       <div id="project-grid" className={'flex flex-col gap-y-24 md:gap-y-36'}>
         {
@@ -130,7 +130,7 @@ export class Projects extends React.Component<ProjectsProps, ProjectsState> {
               >
                 <div
                   data-image-id={index}
-                  className={'project-image-container relative bp-max-768:h-full bg-theme-primary-light hover:bg-transparent transition-colors col-start-1 col-end-13 md:group-odd:col-start-1 md:group-odd:col-end-8 md:group-even:col-start-6 md:group-even:col-end-13 row-start-1 row-end-2 md:after:absolute md:after:w-full md:after:h-full md:after:content-[""] md:after:border md:after:border-gray-600 dark:md:after:border-white md:after:top-0 md:after:left-0 z-0 md:group-odd:md:after:translate-x-4 md:group-even:md:after:-translate-x-4 md:after:translate-y-4 hover:md:group-odd:md:after:translate-x-0 hover:md:group-even:md:after:translate-x-0 hover:md:after:translate-y-0 md:after:transition-all md:after:-z-20 drop-shadow-2xl'}
+                  className={'project-image-container relative bp-max-768:h-full bg-blue-sapphire hover:bg-transparent transition-colors col-start-1 col-end-13 md:group-odd:col-start-1 md:group-odd:col-end-8 md:group-even:col-start-6 md:group-even:col-end-13 row-start-1 row-end-2 md:after:absolute md:after:w-full md:after:h-full md:after:content-[""] md:after:border md:after:border-gray-600 dark:md:after:border-white md:after:top-0 md:after:left-0 z-0 md:group-odd:md:after:translate-x-4 md:group-even:md:after:-translate-x-4 md:after:translate-y-4 hover:md:group-odd:md:after:translate-x-0 hover:md:group-even:md:after:translate-x-0 hover:md:after:translate-y-0 md:after:transition-all md:after:-z-20 drop-shadow-2xl'}
                 >
                   <img
                     src={proj.imgUrl}
@@ -144,10 +144,10 @@ export class Projects extends React.Component<ProjectsProps, ProjectsState> {
                 </div>
                 <div
                   data-description-id={index}
-                  className={'project-desc-container bp-max-768:bg-theme-secondary-dark bp-max-768:bg-opacity-90 bp-max-768:p-10 col-start-1 col-end-13 md:group-odd:col-start-7 md:group-odd:col-end-13 md:group-even:col-start-1 md:group-even:col-end-7 row-start-1 row-end-2 md:group-odd:text-right md:group-even:text-left child-no-pseudo z-20'}
+                  className={'project-desc-container bp-max-768:bg-gray-dark bp-max-768:bg-opacity-90 bp-max-768:p-10 col-start-1 col-end-13 md:group-odd:col-start-7 md:group-odd:col-end-13 md:group-even:col-start-1 md:group-even:col-end-7 row-start-1 row-end-2 md:group-odd:text-right md:group-even:text-left child-no-pseudo z-20'}
                 >
-                  <h3 className={'text-theme-primary-light dark:text-theme-primary-lighter my-4'}>{proj.name}</h3>
-                  <div className={'md:bg-theme-secondary-dark rounded-md p-6 bp-max-768:px-0 my-4 drop-shadow-2xl'}>
+                  <h3 className={'text-blue-sapphire dark:text-blue-sky my-4'}>{proj.name}</h3>
+                  <div className={'md:bg-gray-dark rounded-md p-6 bp-max-768:px-0 my-4 drop-shadow-2xl'}>
                     <p className={'mb-4 text-white'} dangerouslySetInnerHTML={descriptionContent} />
                   </div>
                   <ul className={'list-none my-4'}>
@@ -161,14 +161,14 @@ export class Projects extends React.Component<ProjectsProps, ProjectsState> {
                   <div>
                     {
                       proj.repoUrl.length > 0
-                        ? <a href={proj.repoUrl} className={'inline-block hover:scale-125 hover:text-theme-primary-light dark:hover:text-theme-primary-lighter transition-transform group-odd:first:ml-0 group-odd:last:mr-0 group-even:first:mr-0 group-even:last:ml-0 mx-2'}>
+                        ? <a href={proj.repoUrl} className={'inline-block hover:scale-125 hover:text-blue-sapphire dark:hover:text-blue-sky transition-transform group-odd:first:ml-0 group-odd:last:mr-0 group-even:first:mr-0 group-even:last:ml-0 mx-2'}>
                           <GitHub />
                         </a>
                         : null
                     }
                     {
                       proj.projUrl.length > 0
-                        ? <a href={proj.projUrl} className={'inline-block hover:scale-125 hover:text-theme-primary-light dark:hover:text-theme-primary-lighter transition-transform group-odd:first:ml-0 group-odd:last:mr-0 group-even:first:mr-0 group-even:last:ml-0 mx-2'}>
+                        ? <a href={proj.projUrl} className={'inline-block hover:scale-125 hover:text-blue-sapphire dark:hover:text-blue-sky transition-transform group-odd:first:ml-0 group-odd:last:mr-0 group-even:first:mr-0 group-even:last:ml-0 mx-2'}>
                           <External />
                         </a>
                         : null

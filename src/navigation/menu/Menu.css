@@ -1,6 +1,6 @@
 #mobileMenu {
     @apply fixed top-0 left-full right-0 w-[min(75vw,400px)] h-screen rounded-l-3xl pt-[var(--header-height)] p-4 z-30
-    bg-theme-navbar-light dark:bg-theme-navbar-dark transition-all flex flex-col;
+    bg-gray-lightest dark:bg-gray-darker transition-all flex flex-col;
 }
 
 #mobileMenu ul::before,
@@ -22,7 +22,7 @@
 
 #mobileMenu li a:hover span,
 #mobileMenu li a:hover svg {
-    @apply text-theme-primary-light dark:text-theme-primary-light;
+    @apply text-blue-sapphire dark:text-blue-sapphire;
 }
 
 #mobileMenu li a span {
