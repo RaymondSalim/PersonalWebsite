@@ -57,13 +57,13 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
     return (
       <header
         id={Header.elementID}
-        className={`bg-theme-secondary-light dark:bg-theme-secondary-dark z-50 fixed max-w-[100vw] w-full top-0  h-header flex justify-between transition-all duration-[250ms] px-4
+        className={`bg-gray-light dark:bg-gray-dark z-50 fixed max-w-[100vw] w-full top-0  h-header flex justify-between transition-all duration-[250ms] px-4
           ${(this.state.expanded ?? true) ? 'h-header' : '!bg-opacity-50 shadow-md backdrop-blur-md h-header-scroll'}
           ${(this.state.forceNotHidden ?? !this.state.hidden) ? '' : '-translate-y-full'}
         `}
       >
         <Logo
-          className={'text-theme-primary-light p-1 h-[calc(var(--header-height-scroll)-1rem)] w-[calc(var(--header-height-scroll)-1rem)] my-auto ml-3 z-40'}/>
+          className={'text-blue-sapphire p-1 h-[calc(var(--header-height-scroll)-1rem)] w-[calc(var(--header-height-scroll)-1rem)] my-auto ml-3 z-40'}/>
         <nav
           className={'h-[fit-content] my-auto'}
           onFocus={() => {
