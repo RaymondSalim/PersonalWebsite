@@ -28,7 +28,7 @@ export interface AppState {
 
 export default class App extends React.Component<any, AppState> {
   debouncedResizeHandler: () => void = () => {};
-  GOOGLE_TRACKING_ID = 'G-8LB72N3E8X';
+  GOOGLE_TRACKING_ID = 'UA-236482642-1';
 
   // @ts-ignore
   constructor(p) {
@@ -43,6 +43,8 @@ export default class App extends React.Component<any, AppState> {
   }
 
   componentDidMount = () => {
+    ReactGA.pageview('/');
+
     window.onload = () => {
       this.setState({
         siteReady: true,
