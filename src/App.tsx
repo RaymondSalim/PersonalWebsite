@@ -19,6 +19,7 @@ import { Skill } from './icons/Skill';
 import { Experiences } from './components/Experiences';
 import { Projects } from './components/Projects';
 import { debounce } from './util/common';
+import { EnvironmentVariables } from './enum';
 
 export interface AppState {
   siteReady: boolean
@@ -28,7 +29,8 @@ export interface AppState {
 
 export default class App extends React.Component<any, AppState> {
   debouncedResizeHandler: () => void = () => {};
-  GOOGLE_TRACKING_ID = 'UA-236482642-1';
+  GOOGLE_TRACKING_ID_STG = 'UA-236482642-1';
+  GOOGLE_TRACKING_ID_PROD = 'UA-236482642-2';
 
   // @ts-ignore
   constructor(p) {
@@ -39,7 +41,11 @@ export default class App extends React.Component<any, AppState> {
       darkMode: App.isDarkModeEnabled(),
     };
 
-    ReactGA.initialize(this.GOOGLE_TRACKING_ID);
+    if (process.env[EnvironmentVariables.DEPLOYMENT_ENV] === 'staging') {
+      ReactGA.initialize(this.GOOGLE_TRACKING_ID_STG);
+    } else if (process.env[EnvironmentVariables.DEPLOYMENT_ENV] === 'production') {
+      ReactGA.initialize(this.GOOGLE_TRACKING_ID_PROD);
+    }
   }
 
   componentDidMount = () => {
