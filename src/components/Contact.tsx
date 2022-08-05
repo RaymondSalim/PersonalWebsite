@@ -1,11 +1,16 @@
 import React, { RefObject } from 'react';
+import emailjs from '@emailjs/browser';
+import ReactGA from 'react-ga';
 import { Input, InputProps } from './Input';
 import { GitHub } from '../icons/GitHub';
 import { Email } from '../icons/Email';
 import { Button } from '../buttons/Button';
 import { LinkedIn } from '../icons/LinkedIn';
 
-interface ContactState {}
+interface ContactState {
+  emailJSFormSent: boolean
+  emailSuccessful? : boolean
+}
 interface ContactProps {}
 interface Links {
   url: string,
@@ -62,17 +67,48 @@ export class Contact extends React.Component<ContactProps, ContactState> {
   constructor(props: ContactProps) {
     super(props);
 
+    this.state = {
+      emailJSFormSent: false,
+    };
     this.formRef = React.createRef();
   }
 
   sendMail = () => {
+    ReactGA.event({
+      action: 'Clicked send email',
+      category: 'User Action',
+    });
+
     if (this.formRef.current === null) return;
 
     const formData = new FormData(this.formRef.current);
-    // eslint-disable-next-line no-useless-return
     if (!this.isFormValid(formData)) return;
 
-    // TODO! Integrate emailjs
+    emailjs.sendForm('service_w572sev', 'template_gko1olv', this.formRef.current, '-OnKer8801FTOADcP')
+      .then((res) => {
+        let success = false;
+        if (res.status === 200) {
+          success = true;
+        } else {
+          ReactGA.exception({
+            description: `emailJS API responded with error: \n${JSON.stringify(res, null, 4)}`,
+          });
+        }
+
+        this.setState({
+          emailJSFormSent: true,
+          emailSuccessful: success,
+        });
+      }, (err) => {
+        ReactGA.exception({
+          description: `Failed to hit emailJS API with error: ${err}`,
+        });
+
+        this.setState({
+          emailJSFormSent: true,
+          emailSuccessful: false,
+        });
+      });
   };
 
   isFormValid = (form: FormData) : boolean => {
@@ -116,7 +152,19 @@ export class Contact extends React.Component<ContactProps, ContactState> {
         ),
       },
     ];
+    let emailStatus;
 
+    if (this.state.emailJSFormSent) {
+      if (this.state.emailSuccessful) {
+        emailStatus = (
+          <p className={'row-start-6 row-span-1 col-start-1 col-span-2 mt-4 no-pseudo text-green-500 dark:text-green-500'}>Email has been sent successfully!</p>
+        );
+      } else {
+        emailStatus = (
+          <p className={'row-start-6 row-span-1 col-start-1 col-span-2 mt-4 no-pseudo text-red-500 dark:text-red-500'}>Failed to send email.</p>
+        );
+      }
+    }
     return (
       <div id="contact-grid" className={'flex flex-col gap-y-8 mt-16'}>
         <p>My inbox is always open to opportunities! If you have any questions, offers or just want to say hi, send a message and I&apos;ll get back to you!</p>
@@ -147,6 +195,7 @@ export class Contact extends React.Component<ContactProps, ContactState> {
                 <Input key={el.name} {...el} />
               ))
             }
+            { emailStatus }
             <Button
               text="Send Message!"
               className="px-8 py-4 mt-4 row-start-6 row-span-1 col-start-3 col-span-2 justify-self-end"
