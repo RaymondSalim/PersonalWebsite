@@ -46,7 +46,7 @@ export class Input extends React.Component<InputProps, InputState> {
       input = (
         <textarea
           {...inputProps}
-          className={`styled-input bg-transparent ${this.props.resizable ? '' : 'resize-none'}`}
+          className={`styled-input ${this.props.resizable ? '' : 'resize-none'}`}
           onKeyUp={this.handleKeyUp}
         />
       );
@@ -54,7 +54,7 @@ export class Input extends React.Component<InputProps, InputState> {
       input = (
         <input
           {...inputProps}
-          className={'styled-input bg-transparent'}
+          className={'styled-input '}
           onKeyUp={this.handleKeyUp}
         />
       );
