@@ -1,6 +1,11 @@
 # Changelog
 <hr>
 
+### • v0.6.4 (2022-08-xx)
+```markdown
+- Updated light mode color scheme
+```
+
 ### • v0.6.3 (2022-08-04)
 ```markdown
 - Fixed Page blur issues when switching between mobile and desktop dimension
