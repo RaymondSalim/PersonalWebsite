@@ -62,7 +62,7 @@ body {
 }
 
 main {
-    @apply bg-gray-light dark:bg-gray-darkest;
+    @apply bg-gray-lightest dark:bg-gray-darkest;
 }
 
 .multiple-p > p:first-of-type::after,
@@ -98,15 +98,15 @@ section:not(:first-of-type):not(:last-of-type):not(:nth-of-type(2)) {
 }
 
 #section-curve-start {
-    @apply w-screen translate-y-[-99%] text-gray-light dark:text-gray-darkest mb-[-5vw] mt-[7vw];
+    @apply w-screen translate-y-[-99%] text-gray-lightest dark:text-gray-darkest mb-[-5vw] mt-[7vw];
 }
 
 #section-curve-end {
-    @apply w-screen translate-y-[98%] text-gray-light dark:text-gray-darkest bg-transparent mt-[-12vw] mb-[15vw];
+    @apply w-screen translate-y-[98%] text-gray-lightest dark:text-gray-darkest bg-transparent mt-[-12vw] mb-[15vw];
 }
 
 #home {
-    @apply h-screen fixed top-0 right-0 left-0 bg-gray-lightest dark:bg-gray-dark max-w-[100vw];
+    @apply h-screen fixed top-0 right-0 left-0 bg-gray-light dark:bg-gray-dark max-w-[100vw];
     z-index: -9000;
 }
 
