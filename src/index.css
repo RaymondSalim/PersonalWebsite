@@ -101,6 +101,10 @@ section:nth-of-type(n+3) {
     @apply py-16 md:py-[4.5rem];
 }
 
+section:last-of-type {
+    @apply pb-0 md:pb-0 mb-32 md:mb-36;
+}
+
 #section-curve-start {
     @apply w-screen translate-y-[-99%] text-gray-lightest dark:text-gray-darkest mb-[-5vw] mt-[7vw];
 }
