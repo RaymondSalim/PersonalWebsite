@@ -3,6 +3,8 @@ import { Logo } from '../icons/Logo';
 import BaseProps from '../common/interface/BaseProps';
 import { wait } from '../util/common';
 
+import './PageLoad.css';
+
 export class PageLoad extends React.Component<PageLoadProps, PageLoadState> {
   private readonly logoRef: React.RefObject<Logo>;
 
@@ -36,14 +38,14 @@ export class PageLoad extends React.Component<PageLoadProps, PageLoadState> {
     }
     return (
       <div
-        id="page_load"
+        id="page-load"
         style={{
           zIndex: 5000,
         }}
-        className={`fixed flex justify-center items-center min-h-screen left-0 right-0 top-0 bg-gray-light dark:bg-gray-darkest transition-transform duration-500 ${this.props.siteReady && this.state.animationDone ? '-translate-y-full' : ''}`}
+        className={`${this.props.siteReady && this.state.animationDone ? '-translate-y-full' : ''}`}
       >
         <div>
-          <Logo id="load_logo" className="h-28 w-28" wantAnimation={true} animationCallback={this.animationDone}/>
+          <Logo id="load-logo" wantAnimation={true} animationCallback={this.animationDone}/>
         </div>
       </div>
     );
