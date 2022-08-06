@@ -22,7 +22,7 @@ export class Menu extends React.Component<MenuProps> {
       <aside
         aria-hidden={!this.props.isOpen}
         ref={this.props.innerRef}
-        id="mobileMenu"
+        id="mobile-menu"
         tabIndex={tabIndex}
         className={cls}
       >
@@ -52,7 +52,7 @@ export class Menu extends React.Component<MenuProps> {
             </a>
           </li>
         </ul>
-        <div className={'mt-auto mb-16'}>
+        <div className={'toggle-container'}>
           <DarkModeToggle isDarkModeEnabled={this.props.darkMode} onChange={this.props.darkModeToggle}
                           singleIconMode={false}/>
         </div>
