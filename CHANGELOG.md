@@ -4,6 +4,8 @@
 ### • v0.6.5 (2022-08-xx)
 ```markdown
 - Updated section's margin and padding
+- Refactor CSS usages
+- Fix Project description container bug when switching between mobile and desktop
 ```
 
 ### • v0.6.4 (2022-08-06)
