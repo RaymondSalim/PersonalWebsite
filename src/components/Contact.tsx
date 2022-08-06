@@ -19,6 +19,10 @@ interface Links {
 }
 
 export class Contact extends React.Component<ContactProps, ContactState> {
+  EMAILJS_SERVICEID = 'service_w572sev';
+  EMAILJS_TEMPLATEID = 'template_gko1olv';
+  EMAILJS_PUBLICKEY = '-OnKer8801FTOADcP';
+
   formRef: RefObject<HTMLFormElement>;
   inputFields: InputProps[] = [
     {
@@ -84,7 +88,7 @@ export class Contact extends React.Component<ContactProps, ContactState> {
     const formData = new FormData(this.formRef.current);
     if (!this.isFormValid(formData)) return;
 
-    emailjs.sendForm('service_w572sev', 'template_gko1olv', this.formRef.current, '-OnKer8801FTOADcP')
+    emailjs.sendForm(this.EMAILJS_SERVICEID, this.EMAILJS_TEMPLATEID, this.formRef.current, this.EMAILJS_PUBLICKEY)
       .then((res) => {
         let success = false;
         if (res.status === 200) {
@@ -116,11 +120,9 @@ export class Contact extends React.Component<ContactProps, ContactState> {
     // eslint-disable-next-line no-restricted-syntax
     for (const [key, value] of form) {
       const target = this.inputFields.find((el) => el.name === key);
-      // eslint-disable-next-line no-continue
-      if (target === undefined) continue;
+      if (target === undefined) return false;
 
-      // eslint-disable-next-line no-continue
-      if (target.pattern === undefined) continue;
+      if (target.pattern === undefined) return false;
       const regex = new RegExp(target.pattern);
 
       if (!regex.test(value)) {
