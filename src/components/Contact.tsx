@@ -32,7 +32,7 @@ export class Contact extends React.Component<ContactProps, ContactState> {
       label: 'Name',
       pattern: '.{2,}',
       required: true,
-      className: 'bg-gray-lightest dark:bg-gray-darker row-start-1 row-end-2 col-start-1 col-end-3',
+      className: 'form-input name',
       placeholder: 'Your name',
     }, {
       type: 'email',
@@ -41,7 +41,7 @@ export class Contact extends React.Component<ContactProps, ContactState> {
       label: 'Email',
       pattern: '[^@ \\t\\r\\n]+@[^@ \\t\\r\\n]+\\.[^@ \\t\\r\\n]+',
       required: true,
-      className: 'bg-gray-lightest dark:bg-gray-darker row-start-1 row-end-2 col-start-3 col-end-5',
+      className: 'form-input email',
       placeholder: 'you@awesome.com',
     }, {
       type: 'text',
@@ -51,7 +51,7 @@ export class Contact extends React.Component<ContactProps, ContactState> {
       pattern: '.{2,}',
       required: true,
       autoComplete: 'off',
-      className: 'bg-gray-lightest dark:bg-gray-darker row-start-2 row-end-3 col-start-1 col-end-5',
+      className: 'form-input subject',
       placeholder: 'I would like to chat with you!',
     }, {
       type: 'text',
@@ -63,7 +63,7 @@ export class Contact extends React.Component<ContactProps, ContactState> {
       textArea: true,
       resizable: false,
       autoComplete: 'off',
-      className: 'bg-gray-lightest dark:bg-gray-darker row-start-3 row-end-6 col-start-1 col-end-5',
+      className: 'form-input message',
       placeholder: 'I would like to talk to you about...',
     },
   ];
@@ -141,19 +141,19 @@ export class Contact extends React.Component<ContactProps, ContactState> {
         name: 'GitHub',
         url: 'https://github.com/RaymondSalim',
         icon: (
-          <GitHub className={'inline-block transition-transform group-hover:scale-125 group-focus:scale-125'} />
+          <GitHub className={'link-icon'} />
         ),
       }, {
         name: 'LinkedIn',
         url: 'https://www.linkedin.com/in/raymondsalim/',
         icon: (
-          <LinkedIn className={'inline-block transition-transform group-hover:scale-125 group-focus:scale-125'} />
+          <LinkedIn className={'link-icon'} />
         ),
       }, {
         name: 'Email',
         url: 'mailto:raymond@raymonds.dev',
         icon: (
-          <Email className={'inline-block transition-transform group-hover:scale-125 group-focus:scale-125'} />
+          <Email className={'link-icon'} />
         ),
       },
     ];
@@ -162,19 +162,19 @@ export class Contact extends React.Component<ContactProps, ContactState> {
     if (this.state.emailJSFormSent) {
       if (this.state.emailSuccessful) {
         emailStatus = (
-          <p className={'row-start-6 row-span-1 col-start-1 col-span-2 mt-4 no-pseudo text-green-500 dark:text-green-500'}>Email has been sent successfully!</p>
+          <p id={'email-status'} className={'text-green-500 dark:text-green-500'}>Email has been sent successfully!</p>
         );
       } else {
         emailStatus = (
-          <p className={'row-start-6 row-span-1 col-start-1 col-span-2 mt-4 no-pseudo text-red-500 dark:text-red-500'}>Failed to send email.</p>
+          <p id={'email-status'} className={'text-red-500 dark:text-red-500'}>Failed to send email.</p>
         );
       }
     }
     return (
-      <div id="contact-grid" className={'flex flex-col gap-y-8 mt-16'}>
+      <div id="contact-grid">
         <p>My inbox is always open to opportunities! If you have any questions, offers or just want to say hi, send a message and I&apos;ll get back to you!</p>
-        <div className={'grid grid-cols-8 grid-rows-5 gap-x-2 gap-y-8'}>
-          <div className="row-start-1 row-span-1 md:row-span-2 col-start-1 col-span-8 md:col-span-2 flex flex-col gap-y-2">
+        <div id={'contact-ways'}>
+          <div id={'contact-links'}>
             {
               links.map((el) => (
                 <div
@@ -182,10 +182,9 @@ export class Contact extends React.Component<ContactProps, ContactState> {
                 >
                   <a
                     href={el.url}
-                    className={'group focus:ring-0'}
                   >
                     {el.icon}
-                    <span className={'ml-4 text-highlight group-hover:text-blue-sapphire group-focus:text-blue-sapphire'}>{el.name}</span>
+                    <span>{el.name}</span>
                   </a>
                 </div>
               ))
@@ -193,7 +192,7 @@ export class Contact extends React.Component<ContactProps, ContactState> {
           </div>
           <form
             ref={this.formRef}
-            className={'row-start-2 md:row-start-1 row-span-full col-start-1 md:col-start-3 col-span-8 md:col-span-full grid grid-rows-5 grid-cols-4 gap-x-3 gap-y-2'}
+            id={'contact-form'}
           >
             {
               this.inputFields.map((el) => (
@@ -203,7 +202,7 @@ export class Contact extends React.Component<ContactProps, ContactState> {
             { emailStatus }
             <Button
               text="Send Message!"
-              className="px-8 py-4 mt-4 row-start-6 row-span-1 col-start-3 col-span-2 justify-self-end"
+              className="btn"
               onclick={this.sendMail}
             />
           </form>
