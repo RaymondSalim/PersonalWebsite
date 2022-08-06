@@ -1,6 +1,5 @@
 import React, { ReactElement, SyntheticEvent } from 'react';
 import BaseProps from '../common/interface/BaseProps';
-import './Input.css';
 
 interface InputState {}
 export interface InputProps extends BaseProps {

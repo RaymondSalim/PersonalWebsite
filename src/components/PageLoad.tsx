@@ -3,8 +3,6 @@ import { Logo } from '../icons/Logo';
 import BaseProps from '../common/interface/BaseProps';
 import { wait } from '../util/common';
 
-import './PageLoad.css';
-
 export class PageLoad extends React.Component<PageLoadProps, PageLoadState> {
   private readonly logoRef: React.RefObject<Logo>;
 
