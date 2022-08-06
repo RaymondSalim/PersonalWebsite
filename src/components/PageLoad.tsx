@@ -1,7 +1,7 @@
 import React from 'react';
-import { Logo } from './icons/Logo';
-import BaseProps from './common/interface/BaseProps';
-import { wait } from './util/common';
+import { Logo } from '../icons/Logo';
+import BaseProps from '../common/interface/BaseProps';
+import { wait } from '../util/common';
 
 export class PageLoad extends React.Component<PageLoadProps, PageLoadState> {
   private readonly logoRef: React.RefObject<Logo>;

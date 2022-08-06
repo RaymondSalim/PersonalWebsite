@@ -2,7 +2,7 @@ import React, { SyntheticEvent } from 'react';
 import ReactGA from 'react-ga';
 
 import { NavbarMobileProps } from './navigation/navbar/mobile/NavBar';
-import { PageLoad } from './PageLoad';
+import { PageLoad } from './components/PageLoad';
 import { getItemFromLocalStorage, setItemInLocalStorage } from './util/LocalStorage';
 import { DarkModeToggle } from './util/darkmode/DarkModeToggle';
 import { Header } from './navigation/Header';
