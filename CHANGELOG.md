@@ -1,7 +1,7 @@
 # Changelog
 <hr>
 
-### • v0.6.4 (2022-08-xx)
+### • v0.6.4 (2022-08-06)
 ```markdown
 - Updated light mode color scheme
 - Added Contact Section with emailJS integration
