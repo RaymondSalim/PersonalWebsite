@@ -14,6 +14,7 @@ export class Button extends React.Component<ButtonProps> {
         onClick={this.props.onclick}
         className={`btn ${this.props.className}`}
         onFocus={this.props.onfocus}
+        tabIndex={0}
       >{this.props.text}</a>
     );
   }

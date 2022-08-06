@@ -20,6 +20,7 @@ import { Experiences } from './components/Experiences';
 import { Projects } from './components/Projects';
 import { debounce } from './util/common';
 import { EnvironmentVariables } from './enum';
+import { Contact } from './components/Contact';
 
 export interface AppState {
   siteReady: boolean
@@ -213,9 +214,15 @@ export default class App extends React.Component<any, AppState> {
             </div>
           </section>
           <section id="projects">
-            <div id="projects-content" className="content mb-16">
+            <div id="projects-content" className="content">
               <h2>Projects</h2>
               <Projects/>
+            </div>
+          </section>
+          <section id="contact">
+            <div id="contact-content" className="content mb-16">
+              <h2>Contact</h2>
+              <Contact />
             </div>
             <div id="section-curve-end">
               <svg
