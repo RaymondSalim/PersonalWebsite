@@ -68,12 +68,12 @@ export class Input extends React.Component<InputProps, InputState> {
 
     const labelID = `label-${this.props.name}`;
     return (
-      <div className={`relative ${this.props.className}`}>
+      <div className={`styled-input-container ${this.props.className}`}>
         { input }
-        <div>
+        <div className={'label-container'}>
           <label
             id={labelID}
-            className={'bg-gray-lightest dark:bg-gray-darker dark:text-gray-400 px-1'}
+            className={'label'}
           >{this.props.label}
           </label>
         </div>
