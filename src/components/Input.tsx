@@ -20,15 +20,21 @@ export interface InputProps extends BaseProps {
 export class Input extends React.Component<InputProps, InputState> {
   handleKeyUp = (e: SyntheticEvent) => {
     const target = e.currentTarget;
+    let castedTarget: HTMLInputElement | HTMLTextAreaElement;
     target.classList.toggle('typed-on', true);
-    if (target.tagName.toLowerCase() === 'textarea') {
-      if (this.props.pattern === undefined) return;
-      const regexp = new RegExp(this.props.pattern);
 
-      const result = regexp.test((target as HTMLTextAreaElement).value);
-      target.classList.toggle('content-valid', result);
-      target.classList.toggle('content-invalid', !result);
+    if (target.tagName.toLowerCase() === 'textarea') {
+      castedTarget = (target as HTMLTextAreaElement);
+    } else {
+      castedTarget = (target as HTMLInputElement);
     }
+
+    if (this.props.pattern === undefined) return;
+    const regexp = new RegExp(this.props.pattern);
+
+    const result = regexp.test(castedTarget.value);
+    target.classList.toggle('content-valid', result);
+    target.classList.toggle('content-invalid', !result);
   };
 
   render() {

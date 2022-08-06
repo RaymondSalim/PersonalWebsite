@@ -116,20 +116,23 @@ export class Contact extends React.Component<ContactProps, ContactState> {
   };
 
   isFormValid = (form: FormData) : boolean => {
+    let noErrors = true;
     // @ts-ignore
     // eslint-disable-next-line no-restricted-syntax
     for (const [key, value] of form) {
       const target = this.inputFields.find((el) => el.name === key);
-      if (target === undefined) return false;
-
-      if (target.pattern === undefined) return false;
-      const regex = new RegExp(target.pattern);
-
-      if (!regex.test(value)) {
-        return false;
+      if (target !== undefined) {
+        if (target.pattern !== undefined) {
+          const regex = new RegExp(target.pattern);
+          // eslint-disable-next-line no-continue
+          if (regex.test(value)) continue;
+        }
       }
+      const el = document.querySelector(`[name="${key}"]`) as HTMLInputElement;
+      el.classList.toggle('content-invalid', true);
+      noErrors = false;
     }
-    return true;
+    return noErrors;
   };
 
   render() {

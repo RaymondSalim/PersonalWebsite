@@ -10,16 +10,24 @@
     @apply outline-none border-blue-sapphire placeholder-gray-500;
 }
 
-.styled-input.typed-on.content-valid,
 .styled-input.typed-on:valid,
 input.styled-input:valid:not(:placeholder-shown) {
     @apply border-green-500;
 }
 
-.styled-input.typed-on.content-invalid,
 .styled-input.typed-on:invalid,
 input.styled-input:invalid:not(:placeholder-shown) {
     @apply border-red-500;
+}
+
+.content-valid,
+.styled-input.typed-on.content-valid {
+    @apply !border-green-500;
+}
+
+.content-invalid,
+.styled-input.typed-on.content-invalid {
+    @apply !border-red-500;
 }
 
 .styled-input ~ div {
