@@ -38,7 +38,7 @@ export class Projects extends React.Component<ProjectsProps, ProjectsState> {
 
       const el = refObj.current;
       const imageEl: HTMLElement | null = el.querySelector('.project-image-container');
-      const descEl: HTMLElement | null = el.querySelector('.project-desc-container');
+      const descEl: HTMLElement | null = el.querySelector('.project-info-container');
 
       if (imageEl === null || descEl === null) {
         return;
@@ -109,7 +109,7 @@ export class Projects extends React.Component<ProjectsProps, ProjectsState> {
     ];
     // TODO! Find better color for light scheme? (replace bg-gray-dark)
     return (
-      <div id="project-grid" className={'flex flex-col gap-y-24 md:gap-y-36'}>
+      <div id="project-grid">
         {
           projects.map((proj, index) => {
             const descriptionContent = {
@@ -125,12 +125,11 @@ export class Projects extends React.Component<ProjectsProps, ProjectsState> {
               <div
                 key={proj.name}
                 id={`project-${index}`}
-                className={'group w-full grid grid-cols-12 items-center'}
                 ref={ref}
               >
                 <div
                   data-image-id={index}
-                  className={'project-image-container relative bp-max-768:h-full bg-blue-sapphire hover:bg-transparent transition-colors col-start-1 col-end-13 md:group-odd:col-start-1 md:group-odd:col-end-8 md:group-even:col-start-6 md:group-even:col-end-13 row-start-1 row-end-2 md:after:absolute md:after:w-full md:after:h-full md:after:content-[""] md:after:border md:after:border-gray-600 dark:md:after:border-white md:after:top-0 md:after:left-0 z-0 md:group-odd:md:after:translate-x-4 md:group-even:md:after:-translate-x-4 md:after:translate-y-4 hover:md:group-odd:md:after:translate-x-0 hover:md:group-even:md:after:translate-x-0 hover:md:after:translate-y-0 md:after:transition-all md:after:-z-20 drop-shadow-2xl'}
+                  className={'project-image-container'}
                 >
                   <img
                     src={proj.imgUrl}
@@ -139,36 +138,34 @@ export class Projects extends React.Component<ProjectsProps, ProjectsState> {
                       aspectRatio: '16/9',
                       // maxWidth: '25vw',
                     }}
-                    className={'md:mix-blend-multiply bp-max-768:h-full bp-max-768:object-cover'}
                   />
                 </div>
                 <div
                   data-description-id={index}
-                  className={'project-desc-container bp-max-768:bg-gray-dark bp-max-768:bg-opacity-90 bp-max-768:p-10 col-start-1 col-end-13 md:group-odd:col-start-7 md:group-odd:col-end-13 md:group-even:col-start-1 md:group-even:col-end-7 row-start-1 row-end-2 md:group-odd:text-right md:group-even:text-left child-no-pseudo z-20'}
+                  className={'project-info-container'}
                 >
-                  <h3 className={'text-blue-sapphire dark:text-blue-sky my-4'}>{proj.name}</h3>
-                  <div className={'md:bg-gray-dark rounded-md p-6 bp-max-768:px-0 my-4 drop-shadow-2xl'}>
-                    <p className={'mb-4 text-white'} dangerouslySetInnerHTML={descriptionContent} />
+                  <h3 className={'project-title'}>{proj.name}</h3>
+                  <div className={'project-description-container'}>
+                    <p dangerouslySetInnerHTML={descriptionContent} />
                   </div>
-                  <ul className={'list-none my-4'}>
+                  <ul className={'project-stack-list'}>
                     {proj.techStacks.map((el, ind) => (
                       <li
                         key={ind}
-                        className={'inline-block first-of-type:ml-0 last-of-type:mr-0 mx-4'}
                       >{el}</li>
                     ))}
                   </ul>
                   <div>
                     {
                       proj.repoUrl.length > 0
-                        ? <a href={proj.repoUrl} className={'inline-block hover:scale-125 hover:text-blue-sapphire dark:hover:text-blue-sky transition-transform group-odd:first:ml-0 group-odd:last:mr-0 group-even:first:mr-0 group-even:last:ml-0 mx-2'}>
+                        ? <a href={proj.repoUrl} className={'project-links'}>
                           <GitHub />
                         </a>
                         : null
                     }
                     {
                       proj.projUrl.length > 0
-                        ? <a href={proj.projUrl} className={'inline-block hover:scale-125 hover:text-blue-sapphire dark:hover:text-blue-sky transition-transform group-odd:first:ml-0 group-odd:last:mr-0 group-even:first:mr-0 group-even:last:ml-0 mx-2'}>
+                        ? <a href={proj.projUrl} className={'project-links'}>
                           <External />
                         </a>
                         : null

@@ -11,6 +11,10 @@
     --animation-time: 600ms;
 }
 
+.burger-btn {
+    @apply h-full z-40 flex items-center relative p-4 rounded-lg outline-none;
+}
+
 .burger-container {
     @apply cursor-pointer;
     height: var(--burger-container-height);

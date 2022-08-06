@@ -31,7 +31,7 @@ export class NavBar extends React.Component<NavBarDesktopProps> {
               <span>Contact</span>
             </a>
           </li>
-          <li className={'!ml-4 h-7 w-7'}>
+          <li className={'toggle-container'}>
             <DarkModeToggle singleIconDim={iconDim?.pixels} isDarkModeEnabled={this.props.darkMode}
                             onChange={this.props.darkModeToggle} singleIconMode={true}/>
           </li>

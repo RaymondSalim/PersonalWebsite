@@ -146,11 +146,11 @@ export class Experiences extends React.Component<ExperiencesProps, ExperiencesSt
           tabIndex={-1}
           aria-selected={this.state.activeTabID === index}
           aria-controls={`panel-${index}`}
-          className={'w-full whitespace-nowrap text-left text-gray-400'}
+          className={'experience-tab-button'}
         >
           <span
             tabIndex={0}
-            className={`text-highlight focus-reset ${this.state.activeTabID === index ? 'text-blue-sapphire dark:text-blue-sky' : ''}`}
+            className={this.state.activeTabID === index ? 'text-blue-sapphire dark:text-blue-sky' : ''}
           >{exp.name}</span>
         </button>
       );
@@ -161,7 +161,7 @@ export class Experiences extends React.Component<ExperiencesProps, ExperiencesSt
 
       selector = (
         <span
-          className={'absolute leading-[0] !text-blue-sky transition-[top] hidden md:block'}
+          className={'experience-tab-selector'}
           style={{
             top: selectorHeight,
           }}
@@ -184,33 +184,32 @@ export class Experiences extends React.Component<ExperiencesProps, ExperiencesSt
             opacity: 0,
           }}
           onAnimationEnd={(e) => this.animationEndHandler(e)}
-          className={'absolute inline-block top-0 left-0'}
+          className={'experience-info-container'}
         >
-          <h3 className={'no-pseudo mb-0'}>
+          <h3 className={'experience-title'}>
             <span>{exp.position}</span>
             <span
-              className={'text-blue-sapphire dark:text-blue-sky'}
+              className={'company-name'}
             >
               &nbsp;@&nbsp;
               <a
                 href={exp.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={'text-highlight'}
                 tabIndex={this.state.activeTabID === index ? 0 : -1}
               >{exp.name}
               </a>
             </span>
           </h3>
-          <p className={'no-pseudo'}>{`${exp.monthYearStart} - ${exp.monthYearEnd}`}</p>
-          <ul className={'mt-4 list-disc list-outside ml-8'}>
+          <p>{`${exp.monthYearStart} - ${exp.monthYearEnd}`}</p>
+          <ul className={'job-description'}>
             {
               exp.description
                 .map((desc, descIndex) => {
                   const content = {
                     __html: desc,
                   };
-                  return <li key={descIndex} className={'md:pl-4'} dangerouslySetInnerHTML={content}/>;
+                  return <li key={descIndex} dangerouslySetInnerHTML={content}/>;
                 })
             }
           </ul>
@@ -229,7 +228,7 @@ export class Experiences extends React.Component<ExperiencesProps, ExperiencesSt
           {tabs}
           {selector}
         </div>
-        <div className={'w-full md:ml-8 relative'} style={{ minHeight: this.state.minPanelHeight }}>
+        <div id={'experience-info'} style={{ minHeight: this.state.minPanelHeight }}>
           {descriptions}
         </div>
       </div>
