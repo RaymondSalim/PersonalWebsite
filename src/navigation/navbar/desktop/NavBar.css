@@ -18,3 +18,7 @@
 #navbar-desktop li a:hover span {
     @apply text-blue-sapphire dark:text-blue-sapphire;
 }
+
+#navbar-desktop .toggle-container {
+    @apply !ml-4 h-7 w-7;
+}
