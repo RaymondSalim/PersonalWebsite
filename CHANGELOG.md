@@ -1,6 +1,11 @@
 # Changelog
 <hr>
 
+### • v0.6.5 (2022-08-xx)
+```markdown
+- Updated section's margin and padding
+```
+
 ### • v0.6.4 (2022-08-06)
 ```markdown
 - Updated light mode color scheme
