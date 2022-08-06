@@ -36,7 +36,7 @@
 }
 
 .project-info-container {
-    @apply bp-max-768:bg-gray-dark bp-max-768:bg-opacity-90 bp-max-768:p-10 col-start-1 col-end-13
+    @apply bp-max-768:bg-gray-dark bp-max-768:bg-opacity-90 bp-max-768:!translate-y-0 bp-max-768:p-10 col-start-1 col-end-13
     row-start-1 row-end-2 child-no-pseudo z-20;
 }
 
