@@ -73,7 +73,7 @@ export class Input extends React.Component<InputProps, InputState> {
         <div>
           <label
             id={labelID}
-            className={'bg-gray-darker dark:text-gray-400 px-1'}
+            className={'bg-gray-lightest dark:bg-gray-darker dark:text-gray-400 px-1'}
           >{this.props.label}
           </label>
         </div>
