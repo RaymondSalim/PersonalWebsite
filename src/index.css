@@ -73,7 +73,7 @@ main {
 }
 
 .text-highlight {
-    @apply relative no-underline focus:ring-0;
+    @apply relative no-underline focus:ring-0 group-focus:after:w-full group-hover:after:w-full;
 }
 
 .text-highlight::after {
