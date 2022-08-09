@@ -3,7 +3,7 @@ main {
 }
 
 #page {
-    @apply antialiased relative bg-gray-lightest dark:bg-gray-dark;
+    @apply antialiased relative bg-gray-light dark:bg-gray-dark;
 }
 
 #menu-blur-layer {
@@ -31,16 +31,12 @@ section:last-of-type {
 }
 
 #section-curve-end {
-    @apply w-screen translate-y-[98%] text-gray-lightest dark:text-gray-darkest bg-transparent mt-[-12vw] mb-[15vw];
+    @apply w-screen translate-y-[98%] text-gray-lightest dark:text-gray-darkest bg-gray-light dark:bg-gray-dark mt-[-12vw] mb-[15vw];
 }
 
 #home {
     @apply h-screen fixed top-0 right-0 left-0 bg-gray-light dark:bg-gray-dark max-w-[100vw];
     z-index: -9000;
-}
-
-.content {
-    @apply bp-max-480:mx-6 bp-max-768:mx-14 bp-max-1080:mx-[6.25rem] mx-36 max-w-[1000px] mx-auto;
 }
 
 #home-content {

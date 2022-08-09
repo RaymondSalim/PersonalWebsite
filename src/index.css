@@ -64,11 +64,11 @@ body {
 
 @layer base {
     /* Headings & texts */
-    h1, h2, h3, h4, h5, h6, a, h1 span {
+    h1, h2, h3, h4, h5, h6, h1 span {
         @apply dark:text-white relative;
     }
 
-    span, p, li {
+    span, p, li, a {
         @apply dark:text-gray-400 text-gray-500 relative 2xl:text-xl;
     }
 
@@ -186,6 +186,10 @@ body {
         .page-background-color {
             background-color: #06080c;
         }
+    }
+
+    .content {
+        @apply bp-max-480:mx-6 bp-max-768:mx-14 bp-max-1080:mx-[6.25rem] mx-36 max-w-[1000px] mx-auto;
     }
 
     .color-red {
