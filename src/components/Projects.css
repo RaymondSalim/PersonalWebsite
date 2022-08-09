@@ -7,32 +7,35 @@
 }
 
 .project-image-container {
-    @apply relative bg-blue-sapphire transition-colors col-start-1 col-end-13 row-start-1 row-end-2 md:after:translate-y-4
-    drop-shadow-2xl bp-max-768:h-full;
+    @apply relative col-start-1 col-end-13 row-start-1 row-end-2 drop-shadow-2xl bp-max-768:h-full;
 }
 
-.project-image-container:hover {
-    @apply bg-transparent;
+.project-image-container::before {
+    @apply bp-max-768:hidden absolute z-0 w-full h-full content-[""] bg-blue-sapphire overflow-hidden rounded-md;
 }
 
 .project-image-container::after {
-    @apply md:absolute md:w-full md:h-full md:content-[""] md:border md:border-gray-600 dark:md:border-white md:top-0 md:left-0 md:transition-all md:-z-20
-}
-
-#project-grid > div[id^="project-"]:nth-of-type(even) .project-image-container {
-    @apply md:col-start-6 md:col-end-13 md:after:-translate-x-4;
-}
-
-#project-grid > div[id^="project-"]:nth-of-type(odd) .project-image-container {
-    @apply md:col-start-1 md:col-end-8 md:after:translate-x-4;
-}
-
-#project-grid > div[id^="project-"] .project-image-container:hover {
-    @apply md:after:translate-x-0 md:after:translate-y-0;
+    @apply bp-max-768:hidden absolute pointer-events-none w-full h-full translate-y-4 content-[""] outline outline-1 outline-gray-600 dark:outline-white top-0 left-0 transition-all -z-20 overflow-hidden rounded-md;
 }
 
 .project-image-container img {
-    @apply md:mix-blend-multiply bp-max-768:h-full bp-max-768:object-cover;
+    @apply bp-max-768:h-full bp-max-768:object-cover z-20 relative md:mix-blend-overlay transition-all grayscale overflow-hidden rounded-md;
+}
+
+.project-image-container img:hover {
+    @apply md:mix-blend-normal grayscale-0;
+}
+
+#project-grid > div[id^="project-"]:nth-of-type(even) .project-image-container {
+    @apply md:col-start-6 md:col-end-13 after:-translate-x-4;
+}
+
+#project-grid > div[id^="project-"]:nth-of-type(odd) .project-image-container {
+    @apply md:col-start-1 md:col-end-8 after:translate-x-4;
+}
+
+#project-grid > div[id^="project-"] .project-image-container:hover {
+    @apply after:translate-x-0 after:translate-y-0 before:hidden;
 }
 
 .project-info-container {

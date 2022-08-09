@@ -6,6 +6,7 @@
 - Updated section's margin and padding
 - Refactor CSS usages
 - Fix Project description container bug when switching between mobile and desktop
+- Fix Project image hover issues
 ```
 
 ### • v0.6.4 (2022-08-06)
