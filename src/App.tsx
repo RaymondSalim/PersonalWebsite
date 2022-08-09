@@ -192,10 +192,11 @@ export default class App extends React.Component<any, AppState> {
                   <p className="before:content-none md:before:p-before">When I am not coding, you can find me doing any
                     of the following:</p>
                   <ul className="list-disc list-outside mt-8 ml-5">
+                    <li>Gym</li>
                     <li>Badminton</li>
                     <li>Ultimate Frisbee</li>
+                    <li>Rock Climbing</li>
                     <li>Watching/playing video games</li>
-                    <li>Brainstorming the next billion dollar startup idea (haha..)</li>
                   </ul>
                 </div>
                 <div className="row-start-3 md:row-start-2 md:col-span-full">
