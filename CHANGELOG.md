@@ -1,10 +1,12 @@
 # Changelog
 <hr>
 
-### • v0.6.6 (2022-08-xx)
+### • v0.6.6 (2022-08-09)
 ```markdown
 - Added Favicon
 - Updated Page's HTML Head meta tags
+- Updated Footer section
+- Updated activities list
 ```
 
 ### • v0.6.5 (2022-08-09)
