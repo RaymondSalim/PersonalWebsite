@@ -1,6 +1,12 @@
 # Changelog
 <hr>
 
+### • v0.6.6 (2022-08-xx)
+```markdown
+- Added Favicon
+- Updated Page's HTML Head meta tags
+```
+
 ### • v0.6.5 (2022-08-09)
 ```markdown
 - Updated section's margin and padding
