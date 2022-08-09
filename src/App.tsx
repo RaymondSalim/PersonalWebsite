@@ -21,6 +21,7 @@ import { Projects } from './components/Projects';
 import { debounce } from './util/common';
 import { EnvironmentVariables } from './enum';
 import { Contact } from './components/Contact';
+import { Footer } from './components/Footer';
 
 export interface AppState {
   siteReady: boolean
@@ -238,14 +239,7 @@ export default class App extends React.Component<any, AppState> {
             </div>
           </section>
         </main>
-        <footer>
-          <div>
-            <span>Icons by </span>
-            <a href="https://colebemis.com/" target="_blank" rel="noopener noreferrer">Cole Bemis</a>
-            <span>, </span>
-            <a href=" https://icons.grommet.io/" target="_blank" rel="noopener noreferrer">grommet-icons</a>
-          </div>
-        </footer>
+        <Footer />
       </div>
     );
   }
