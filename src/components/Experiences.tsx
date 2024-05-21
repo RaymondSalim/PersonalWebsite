@@ -91,17 +91,29 @@ export class Experiences extends React.Component<ExperiencesProps, ExperiencesSt
     let selector;
     const experiences: Experience[] = [
       {
+        name: 'Novometrix',
+        position: 'Software Engineer Intern',
+        url: 'https://novometrixinc.com/',
+        monthYearStart: 'September 2022',
+        monthYearEnd: 'February 2024',
+        description: [
+          'Designed and developed a backend system for information framework system with the goal of providing a repository for peer-reviewed information',
+          'Implemented technologies such as message queueing with NSQ, caching system with Redis and microservices using Golang to provide scalability and ease of development',
+          'Designed and produced a frontend site using Next.js framework with Typescript',
+        ],
+      },
+      {
         name: 'Tokopedia',
         position: 'Software Engineer Intern',
         url: 'https://www.tokopedia.com/about/?lang=en',
         monthYearStart: 'October 2021',
         monthYearEnd: 'March 2022',
         description: [
-          'Implemented concurrency in <b>Golang</b>, resulting in numerous serial tasks to be run in parallel',
-          'Wrote unit tests, improving code coverage by ~15%',
-          'Automated credit bureau data submission process, reducing time consumption by 150 times',
+          'Sped up application flow by 2000% by implementing concurrency in existing <b>Golang</b> code',
+          'Increased code coverage by 20% by authoring unit tests',
+          'Accelerated the credit bureau data submission process by 150 times by automating query and filtration and FTP upload',
+          'Developed API endpoints with authentication, input validation, and basic CRUD functionality, as well as file imports',
           'Created library that allows masking of strings, struct, etc. for privacy purposes',
-          'Developed API Endpoints with CRUD functionality, including importing data from file',
         ],
       },
       {
@@ -111,8 +123,8 @@ export class Experiences extends React.Component<ExperiencesProps, ExperiencesSt
         monthYearStart: 'May 2021',
         monthYearEnd: 'July 2021',
         description: [
-          'Assisted in planning and development of website revamp, including customer journey analysis, UI and UX improvement',
-          'Designed and developed a new microservice using the <b>Java Spring</b> framework, which automates data filteration and calculation, hence reducing task execution time from one day to minutes',
+          'Assisted in the planning stage of the company’s website overhaul, including discussion based on customer journey analysis, and UI and UX improvement',
+          'Designed and developed a new microservice using the <b>Java Spring</b> framework, removing the need for manual query and filtering, hence reducing task execution time from one day to minutes',
           'Integrated third party API to deliver push notification based on user events',
           'Utilized testing libraries such as <b>JUNIT</b>, <b>AssertJ</b> and <b>Mockito</b> in Unit and Integration Testing',
         ],
@@ -124,7 +136,7 @@ export class Experiences extends React.Component<ExperiencesProps, ExperiencesSt
         monthYearStart: 'October 2020',
         monthYearEnd: 'March 2021',
         description: [
-          'Designed and developed a fully responsive web scraper web application with <b>Python</b> + <b>PHP</b>, increasing the efficiency of data collection process by 600%',
+          'Achieved a 600% increase in the efficiency of the data collection process by designing and developing a fully responsive web scraper web application using <b>Python</b> + <b>PHP</b>',
           'Implemented authentication system, background task scheduling and Content Management System',
           'Collaborated with the Business Development Department to plan and build a dynamic responsive landing page using <b>jQuery</b> and <b>tailwindcss</b>',
           'Developed a Content Management System, with role-based authentication using Bootstrap and jQuery',
