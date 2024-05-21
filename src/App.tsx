@@ -217,7 +217,7 @@ export default class App extends React.Component<any, AppState> {
           </section>
           <section id="projects">
             <div id="projects-content" className="content">
-              <h2>Projects</h2>
+              <h2>Things I&apos;ve Built</h2>
               <Projects/>
             </div>
           </section>
