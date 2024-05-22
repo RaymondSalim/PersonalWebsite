@@ -78,7 +78,7 @@ export class Projects extends React.Component<ProjectsProps, ProjectsState> {
         techStacks: [
           'TypeScript', 'React', 'Vite.js',
         ],
-        description: 'Developed a client landing page using React with TypeScript, featuring an interactive online quiz and Google Analytics integration for user engagement and tracking.',
+        description: 'Developed a landing page for a client using React with TypeScript, featuring an interactive online quiz and Google Analytics integration for user engagement and tracking.',
         date: new Date(2023, 9),
       },
       {
@@ -90,7 +90,7 @@ export class Projects extends React.Component<ProjectsProps, ProjectsState> {
         techStacks: [
           'TypeScript', 'React', 'Vite.js',
         ],
-        description: 'Developed a client landing page using React with TypeScript, featuring Google Analytics integration for user engagement and tracking.',
+        description: 'Developed a landing page for a client using React with TypeScript, featuring Google Analytics integration for user engagement and tracking.',
         date: new Date(2024, 1),
       },
       {
