@@ -92,7 +92,7 @@ export class Experiences extends React.Component<ExperiencesProps, ExperiencesSt
     const experiences: Experience[] = [
       {
         name: 'Novometrix',
-        position: 'Software Engineer Intern',
+        position: 'Software Engineer',
         url: 'https://novometrixinc.com/',
         monthYearStart: 'September 2022',
         monthYearEnd: 'February 2024',
